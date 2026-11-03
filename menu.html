@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANHATTAN Club and Bar — Меню</title>
+</head>
+<body>
+
+    <!-- ШАПКА САЙТУ -->
+    <header>
+        <a href="index.html">
+            <img src="images/icon_manhetten.png" alt="MANHATTAN Club and Bar">
+        </a>
+        
+        <!-- Головне навігаційне меню -->
+        <nav>
+    <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="menu.html">Меню</a></li>
+        <li><a href="affiche.html">Афіша</a></li>
+        <li><a href="about.html">Чому ми?</a></li>
+        <li><a href="galery.html">Галерея</a></li>
+        <li><a href="index.html#techrider">Техрайдер</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+</nav>
+
+        <!-- Вибір мови -->
+        <label for="lang-select">Мова:</label>
+        <select id="lang-select" name="language">
+            <option value="ua" selected>UA</option>
+            <option value="en">EN</option>
+        </select>
+
+        <!-- Кнопка відкриття першого вспливаючого вікна бронювання -->
+        <button type="button" popovertarget="booking-modal-step1">БРОНЮВАННЯ</button>
+    </header>
+
+    <hr>
+
+    <!-- ОСНОВНИЙ КОНТЕНТ МЕНЮ -->
+    <main>
+
+        <!-- Заголовок сторінки -->
+        <section id="menu-header">
+            <p>TOP "MANHATTAN" DISHES</p>
+            <h1>МЕНЮ</h1>
+        </section>
+
+        <!-- РАЗДЕЛ 1: ОСНОВНІ СТРАВИ -->
+        <section id="main-courses">
+            <h2>ОСНОВНІ СТРАВИ</h2>
+
+            <div class="dishes-grid">
+                <!-- Страва 1 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-1" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish1.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">200 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Placerat id auctor nunc id vel vel curabitur. Urna fames maecenas leo elit diam nibh elit.</p>
+                </article>
+
+                <!-- Страва 2 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-2" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish2.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">500 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Elit imperdiet faucibus euismod tortor risus volutpat molestie morbi sed. Porta ac ru.</p>
+                </article>
+
+                <!-- Страва 3 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-3" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish3.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">400 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Pharetra morbi purus hendrerit risus vel consequat nunc, sed. Pharetra nulla imperdiet.</p>
+                </article>
+
+                <!-- Страва 4 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-4" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish4.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">200 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Leo in arcu in gravida vivamus scelerisque non. Euismod nec amet amet egestas nisl iaculis.</p>
+                </article>
+
+                <!-- Страва 5 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-5" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish5.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">300 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">In mauris, elit nisl sed. Nulla accumsan vestibulum sed velit sagittis quis accumsan.</p>
+                </article>
+
+                <!-- Страва 6 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-6" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish6.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">500 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Duis quisque tristique nulla cursus justo, etiam viverra nulla cras. Consectetur eget augue.</p>
+                </article>
+
+                <!-- Страва 7 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-7" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish7.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">100 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">In cras pharetra aliquet laoreet. Lectus nisi ante felis quam pharetra in maecenas ut felis.</p>
+                </article>
+
+                <!-- Страва 8 -->
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-8" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish8.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">300 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Integer dolor et sed tempus non. Adipiscing viverra in viverra quisque pretium. Commodo.</p>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- РАЗДЕЛ 2: ЗАКУСКИ -->
+        <section id="appetizers">
+            <h2>ЗАКУСКИ</h2>
+
+            <div class="dishes-grid">
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-1" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish1.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">200 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Placerat id auctor nunc id vel vel curabitur. Urna fames maecenas leo elit diam nibh elit.</p>
+                </article>
+
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-2" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish2.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">500 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Elit imperdiet faucibus euismod tortor risus volutpat molestie morbi sed. Porta ac ru.</p>
+                </article>
+
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-3" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish3.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">100 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Pharetra morbi purus hendrerit risus vel consequat nunc, sed. Pharetra nulla imperdiet.</p>
+                </article>
+
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-4" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish4.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">200 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Leo in arcu in gravida vivamus scelerisque non. Euismod nec amet amet egestas nisl iaculis.</p>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- РАЗДЕЛ 3: БАР -->
+        <section id="bar">
+            <h2>БАР</h2>
+
+            <div class="dishes-grid">
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-1" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish1.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">200 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Placerat id auctor nunc id vel vel curabitur. Urna fames maecenas leo elit diam nibh elit.</p>
+                </article>
+
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-2" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish2.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">500 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Elit imperdiet faucibus euismod tortor risus volutpat molestie morbi sed. Porta ac ru.</p>
+                </article>
+
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-3" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish3.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">100 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Pharetra morbi purus hendrerit risus vel consequat nunc, sed. Pharetra nulla imperdiet.</p>
+                </article>
+
+                <article class="dish-card">
+                    <button type="button" popovertarget="dish-modal-4" aria-label="Детальніше про AMET DONEC">
+                        <img src="images/dish4.png" alt="AMET DONEC">
+                    </button>
+                    <h3>AMET DONEC.</h3>
+                    <p class="dish-weight">200 гр</p>
+                    <p class="dish-price"><strong>550 ₴</strong></p>
+                    <p class="dish-desc">Leo in arcu in gravida vivamus scelerisque non. Euismod nec amet amet egestas nisl iaculis.</p>
+                </article>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Секція КОНТАКТИ -->
+        <section id="contacts">
+            <p>TOP "MANHATTAN" PLACE</p>
+            <h2>КОНТАКТИ</h2>
+
+            <div>
+                <h3>АДРЕСА</h3>
+                <p>Вулиця Басейна 19 (вхід біля колон в арку)</p>
+
+                <h3>ТЕЛЕФОН</h3>
+                <p><a href="tel:+78127131945">+38 (050) 920-29-15</a></p>
+                <p><a href="tel:+380487131945">+38 (048) 713-19-45</a></p>
+
+                <h3>РЕЖИМ РОБОТИ</h3>
+                <p>Щоденно з 12:00 до 06:00</p>
+
+                <hr>
+
+                <h3>ДИРЕКТОР</h3>
+                <p>Віктор Ларіонов: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+
+                <h3>АРТ ДИРЕКТОР</h3>
+                <p>Вікторія Онашко: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+            </div>
+
+            <!-- Карта розташування -->
+            <div>
+                <h3>КАРТА</h3>
+                <a href="https://maps.google.com/?q=вулиця+Басейна+19+Київ" target="_blank" rel="noopener" title="Відкрити карту в Google Maps">
+                    <img src="images/map.jpg" alt="Карта розташування закладу за адресою вул. Басейна 19">
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ФУТЕР (ПІДВАЛ) -->
+    <footer>
+        <p>&copy; 1996–2026 MANHATTAN CLUB AND BAR. Всі права захищені.</p>
+    </footer>
+
+    <!-- ВСПЛИВАЮЧЕ ВІКНО КАРТКИ СТРАВИ -->
+
+    <div id="dish-modal-1" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish1.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>200 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames. Eget amet hac varius aliquam. Mattis egestas suspendisse convallis eu arcu et aliquet.</p>
+            <p>Porttitor risus sociis vitae nunc id lacus eget felis. Viverra et purus nibh ut. Sed ac leo sit posuere vulputate sed morbi. Donec gravida at turpis sed pulvinar. A nibh non consectetur morbi in arcu, in pellentesque mauris.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-2" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-2" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish2.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>500 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames. Eget amet hac varius aliquam. Mattis egestas suspendisse convallis eu arcu et aliquet.</p>
+            <p>Porttitor risus sociis vitae nunc id lacus eget felis. Viverra et purus nibh ut. Sed ac leo sit posuere vulputate sed morbi. Donec gravida at turpis sed pulvinar. A nibh non consectetur morbi in arcu, in pellentesque mauris.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-3" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-3" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish3.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>400 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames. Eget amet hac varius aliquam. Mattis egestas suspendisse convallis eu arcu et aliquet.</p>
+            <p>Porttitor risus sociis vitae nunc id lacus eget felis. Viverra et purus nibh ut. Sed ac leo sit posuere vulputate sed morbi. Donec gravida at turpis sed pulvinar. A nibh non consectetur morbi in arcu, in pellentesque mauris.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-4" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-4" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish4.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>200 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames. Eget amet hac varius aliquam. Mattis egestas suspendisse convallis eu arcu et aliquet.</p>
+            <p>Porttitor risus sociis vitae nunc id lacus eget felis. Viverra et purus nibh ut. Sed ac leo sit posuere vulputate sed morbi. Donec gravida at turpis sed pulvinar. A nibh non consectetur morbi in arcu, in pellentesque mauris.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-5" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-5" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish5.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>300 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-6" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-6" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish6.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>500 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-7" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-7" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish7.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>100 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames.</p>
+        </article>
+    </div>
+
+    <div id="dish-modal-8" popover>
+        <header>
+            <p><strong>ОСНОВНІ СТРАВИ</strong></p>
+            <button type="button" popovertarget="dish-modal-8" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        
+        <article>
+            <img src="images/dish8.png" alt="AMET DONEC.">
+            <h3>AMET DONEC.</h3>
+            <p><strong>300 ГРН</strong></p>
+            <p>Quam massa pretium et venenatis. Fringilla sagittis, arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames.</p>
+        </article>
+    </div>
+
+
+    <!-- ВСПЛИВАЮЧІ ВІКНА БРОНЮВАННЯ -->
+
+    <!-- ВСПЛИВАЮЧЕ ВІКНО 1: Введення даних користувача (ГОЛОВНЕ ОКРЕМЕ ВІКНО) -->
+    <div id="booking-modal-step1" popover>
+        <header>
+            <h2>БРОНЮВАННЯ</h2>
+            <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+
+        <form>
+            <p>
+                <label for="fio"><strong>ВВЕДІТЬ ВАШ ПІБ:</strong></label><br>
+                <input type="text" id="fio" name="fio" placeholder="Іванов Іван Іванович" required>
+            </p>
+
+            <p>
+                <label for="phone"><strong>ВВЕДІТЬ НОМЕР ТЕЛЕФОНУ:</strong></label><br>
+                <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required>
+            </p>
+
+            <p>
+                <label for="guests"><strong>ВВЕДІТЬ КІЛЬКІСТЬ ОСІБ ЗА СТОЛИК:</strong></label><br>
+                <input type="number" id="guests" name="guests" min="1" max="20" placeholder="2" required>
+            </p>
+
+            <p>
+                <label for="cert"><strong>ВВЕДІТЬ АКЦІЙНИЙ СЕРТИФІКАТ (ЗА НАЯВНОСТІ):</strong></label><br>
+                <input type="text" id="cert" name="certificate" placeholder="XXXX-XXXX">
+            </p>
+
+            <p>
+                <label for="comments"><strong>ДОДАТКОВІ ПОБАЖАННЯ (ЗА ПОТРЕБИ):</strong></label><br>
+                <textarea id="comments" name="comments" rows="3" placeholder="Ваші побажання..."></textarea>
+            </p>
+
+            <div>
+                <img src="images/booking-preview.png" alt="Попередній перегляд зали">
+            </div>
+            <br>
+            <!-- Відкриває Крок 2 поверх Кроку 1 -->
+            <button type="button" popovertarget="booking-modal-step2" popovertargetaction="show">ДАЛІ</button>
+        </form>
+
+        <!-- ВСПЛИВАЮЧЕ ВІКНО 2: Вибір дати (ВКЛАДЕНЕ В КРОК 1) -->
+        <div id="booking-modal-step2" popover>
+            <header>
+                <h2>БРОНЮВАННЯ</h2>
+                <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+            </header>
+
+            <form>
+                <fieldset>
+                    <legend><strong>ОБЕРІТЬ ДЕНЬ:</strong></legend>
+                    <input type="date" id="booking-date" name="booking_date" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>ВІЛЬНИЙ ЧАС (*ЧАС ВАШОГО ПРИХОДУ):</strong></legend>
+
+                    <p>
+                        <span><strong>ЗАНЯТО:</strong> [Заповнена кнопка]</span> | 
+                        <span><strong>ВІЛЬНО:</strong> [Прозора кнопка]</span>
+                    </p>
+
+                    <div>
+                        <label><input type="radio" name="time_slot" value="12:00" disabled> 12:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="14:00"> 14:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="16:00"> 16:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="18:00"> 18:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="20:00" disabled> 20:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="22:00"> 22:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="00:00"> 00:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="02:00"> 02:00 (Вільно)</label>
+                    </div>
+                </fieldset>
+
+                <br>
+                <!-- НАЗАД закриває Крок 2 і повертає до Кроку 1 -->
+                <button type="button" popovertarget="booking-modal-step2" popovertargetaction="hide">НАЗАД</button>
+                <!-- Відкриває Крок 3 поверх Кроку 2 -->
+                <button type="button" popovertarget="booking-modal-step3" popovertargetaction="show">ЗАВЕРШИТИ</button>
+            </form>
+
+            <!-- ВСПЛИВАЮЧЕ ВІКНО 3: Підтвердження (ВКЛАДЕНЕ В КРОК 2) -->
+            <div id="booking-modal-step3" popover>
+                <header>
+                    <h2>БРОНЮВАННЯ</h2>
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+                </header>
+
+                <section>
+                    <h3>ДЯКУЮ! ВИ ЗАБРОНЮВАЛИ СТОЛИК</h3>
+                    <p><em>*НЕЗАБАРОМ ВАМ НАДІЙДЕ СМС ЗА ВКАЗАНИМ НОМЕРОМ. ЗА НАЯВНОСТІ ПИТАНЬ, ЗВЕРТАЙТЕСЯ ЗА НОМЕРОМ В СМС</em></p>
+                    
+                    <br>
+                    <!-- СУПЕР закриває повністю весь комплекс вікон -->
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide">СУПЕР!</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

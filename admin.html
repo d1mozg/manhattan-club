@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANHATTAN Club — Панель адміністратора</title>
+</head>
+<body>
+
+    <!-- ШАПКА АДМІНКИ -->
+    <header>
+        <a href="index.html">
+            <img src="images/icon_manhetten.png" alt="MANHATTAN Club and Bar">
+        </a>
+        <h1>ПАНЕЛЬ АДМІНІСТРАТОРА</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_blank">Переглянути сайт</a></li>
+                <li><strong>Адмін: Дмитро</strong></li>
+                <li><a href="index.html">Вийти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <!-- ОСНОВНИЙ КОНТЕНТ -->
+    <main>
+
+        <!-- БІЧНЕ МЕНЮ НАВІГАЦІЇ АДМІНКИ -->
+        <aside>
+            <h2>НАВІГАЦІЯ</h2>
+            <nav>
+                <ul>
+                    <li><a href="#stat">Дашборд</a></li>
+                    <li><a href="#bookings-management">Управління бронюваннями</a></li>
+                    <li><a href="#afisha-management">Управління афішею</a></li>
+                    <li><a href="#menu-management">Редагування меню</a></li>
+                    <li><a href="#gallery-management">Управління галереєю</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <hr>
+
+        <!-- СЕКЦІЯ 1: СТАТИСТИКА (ДАШБОРД) -->
+        <section id="stat">
+            <h2>ЗАГАЛЬНА СТАТИСТИКА</h2>
+            <div>
+                <figure>
+                    <figcaption><strong>Нових бронювань:</strong> 12</figcaption>
+                </figure>
+                <figure>
+                    <figcaption><strong>Найближчих подій:</strong> 6</figcaption>
+                </figure>
+                <figure>
+                    <figcaption><strong>Позицій у меню:</strong> 48</figcaption>
+                </figure>
+                <figure>
+                    <figcaption><strong>Фотографій у галереї:</strong> 12</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- СЕКЦІЯ 2: ТАБЛИЦЯ УПРАВЛІННЯ БРОНЮВАННЯМИ -->
+        <section id="bookings-management">
+            <h2>УПРАВЛІННЯ БРОНЮВАННЯМИ СТОЛИКІВ</h2>
+
+            <form action="#" method="get">
+                <label for="search-booking">Пошук за ім'ям/телефоном:</label>
+                <input type="search" id="search-booking" name="q" placeholder="Коваленко...">
+
+                <label for="filter-status">Статус:</label>
+                <select id="filter-status" name="status">
+                    <option value="all">Усі статуси</option>
+                    <option value="pending">Очікує підтвердження</option>
+                    <option value="confirmed">Підтверджено</option>
+                    <option value="canceled">Скасовано</option>
+                </select>
+
+                <button type="submit">Застосувати</button>
+            </form>
+
+            <br>
+
+            <table>
+                <caption>Список останніх заявок на бронювання</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ПІБ клієнта</th>
+                        <th>Телефон</th>
+                        <th>Дата та час</th>
+                        <th>Осіб</th>
+                        <th>Статус</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#101</td>
+                        <td>Олексій Коваленко</td>
+                        <td>+380971234567</td>
+                        <td>24.07.2026 | 19:00</td>
+                        <td>4</td>
+                        <td><mark>Очікує</mark></td>
+                        <td>
+                            <button type="button">Підтвердити</button>
+                            <button type="button">Скасувати</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#102</td>
+                        <td>Марія Бойко</td>
+                        <td>+380639876543</td>
+                        <td>24.07.2026 | 20:00</td>
+                        <td>2</td>
+                        <td><strong>Підтверджено</strong></td>
+                        <td>
+                            <button type="button">Редагувати</button>
+                            <button type="button">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- СЕКЦІЯ 3: УПРАВЛІННЯ АФІШОЮ -->
+        <section id="afisha-management">
+            <h2>УПРАВЛІННЯ АФІШОЮ ТА ПОДІЯМИ</h2>
+
+            <form action="#" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend><strong>Створити нову подію</strong></legend>
+
+                    <p>
+                        <label for="event-title">Назва події:</label><br>
+                        <input type="text" id="event-title" name="event_title" placeholder="Наприклад: ROCK SHOW" required>
+                    </p>
+
+                    <p>
+                        <label for="event-date">Дата та час проведення:</label><br>
+                        <input type="datetime-local" id="event-date" name="event_date" required>
+                    </p>
+
+                    <p>
+                        <label for="event-price">Ціна квитка (грн):</label><br>
+                        <input type="number" id="event-price" name="event_price" min="0" step="50" placeholder="250" required>
+                    </p>
+
+                    <p>
+                        <label for="event-poster">Постер події (зображення):</label><br>
+                        <input type="file" id="event-poster" name="event_poster" accept="image/*" required>
+                    </p>
+
+                    <p>
+                        <label for="event-desc">Опис події:</label><br>
+                        <textarea id="event-desc" name="event_desc" rows="3" cols="50" placeholder="Детальний опис події..." required></textarea>
+                    </p>
+
+                    <button type="submit">Опублікувати подію</button>
+                </fieldset>
+            </form>
+
+            <br>
+
+            <h3>ІСНУЮЧІ ПОДІЇ (РЕАГУВАННЯ ТА ВИДАЛЕННЯ)</h3>
+            <table>
+                <caption>Список афіш для редагування</caption>
+                <thead>
+                    <tr>
+                        <th>Постер</th>
+                        <th>Назва події</th>
+                        <th>Дата та час</th>
+                        <th>Ціна</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="images/afisha1.png" alt="Прев'ю РОК В МАНХЭТТЕНЕ" width="60"></td>
+                        <td><input type="text" name="edit_title_1" value="РОК В МАНХЭТТЕНЕ"></td>
+                        <td><input type="text" name="edit_date_1" value="17.07.2022 | 19:00"></td>
+                        <td><input type="number" name="edit_price_1" value="250"> ₴</td>
+                        <td>
+                            <button type="button">Зберегти зміни</button>
+                            <button type="button">Видалити</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/afisha2.png" alt="Прев'ю FINAL CONCERT" width="60"></td>
+                        <td><input type="text" name="edit_title_2" value="FINAL CONCERT"></td>
+                        <td><input type="text" name="edit_date_2" value="23.07 | 18:00"></td>
+                        <td><input type="text" name="edit_price_2" value="FREE"></td>
+                        <td>
+                            <button type="button">Зберегти зміни</button>
+                            <button type="button">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- СЕКЦІЯ 4: РЕДАГУВАННЯ МЕНЮ СТРАВ -->
+        <section id="menu-management">
+            <h2>РЕДАГУВАННЯ МЕНЮ СТРАВ ТА НАПОЇВ</h2>
+
+            <form action="#" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend><strong>Додати нову позицію в меню</strong></legend>
+
+                    <p>
+                        <label for="dish-category">Категорія:</label><br>
+                        <select id="dish-category" name="dish_category">
+                            <option value="main">Основні страви</option>
+                            <option value="appetizers">Закуски</option>
+                            <option value="bar">Бар</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="dish-name">Назва страви/напою:</label><br>
+                        <input type="text" id="dish-name" name="dish_name" placeholder="Стейк Рібай" required>
+                    </p>
+
+                    <p>
+                        <label for="dish-weight">Вага/Об'єм (наприклад, 200 гр чи 0.5 л):</label><br>
+                        <input type="text" id="dish-weight" name="dish_weight" placeholder="300 гр" required>
+                    </p>
+
+                    <p>
+                        <label for="dish-price">Ціна (грн):</label><br>
+                        <input type="number" id="dish-price" name="dish_price" min="0" placeholder="550" required>
+                    </p>
+
+                    <p>
+                        <label for="dish-image">Зображення страви:</label><br>
+                        <input type="file" id="dish-image" name="dish_image" accept="image/*" required>
+                    </p>
+
+                    <button type="submit">Додати позицію</button>
+                </fieldset>
+            </form>
+
+            <br>
+
+            <h3>ІСНУЮЧІ СТРАВИ (ЗМІНА ЦІН ТА НАЗВ)</h3>
+            <table>
+                <caption>Список страв для швидкого редагування</caption>
+                <thead>
+                    <tr>
+                        <th>Фото</th>
+                        <th>Назва</th>
+                        <th>Вага</th>
+                        <th>Ціна (₴)</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="images/dish1.png" alt="AMET DONEC" width="50"></td>
+                        <td><input type="text" name="edit_dish_name_1" value="AMET DONEC."></td>
+                        <td><input type="text" name="edit_dish_weight_1" value="200 гр"></td>
+                        <td><input type="number" name="edit_dish_price_1" value="550"></td>
+                        <td>
+                            <button type="button">Зберегти</button>
+                            <button type="button">Видалити</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/dish2.png" alt="AMET DONEC" width="50"></td>
+                        <td><input type="text" name="edit_dish_name_2" value="AMET DONEC."></td>
+                        <td><input type="text" name="edit_dish_weight_2" value="500 гр"></td>
+                        <td><input type="number" name="edit_dish_price_2" value="550"></td>
+                        <td>
+                            <button type="button">Зберегти</button>
+                            <button type="button">Видалити</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- СЕКЦІЯ 5: УПРАВЛІННЯ ГАЛЕРЕЄЮ -->
+        <section id="gallery-management">
+            <h2>УПРАВЛІННЯ ФОТОГАЛЕРЕЄЮ</h2>
+
+            <form action="#" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend><strong>Завантажити нове фото в галерею</strong></legend>
+
+                    <p>
+                        <label for="gallery-file">Оберіть фотографію (PNG, JPG, WebP):</label><br>
+                        <input type="file" id="gallery-file" name="gallery_file" accept="image/*" required>
+                    </p>
+
+                    <p>
+                        <label for="gallery-alt">Опис фото (для атрибута alt та підпису):</label><br>
+                        <input type="text" id="gallery-alt" name="gallery_alt" placeholder="Наприклад: Барна стійка у VIP-залі" required>
+                    </p>
+
+                    <button type="submit">Завантажити у галерею</button>
+                </fieldset>
+            </form>
+
+            <br>
+
+            <h3>ІСНУЮЧІ СВІТЛИНИ В ГАЛЕРЕЇ</h3>
+            <table>
+                <caption>Управління завантаженими фотографіями</caption>
+                <thead>
+                    <tr>
+                        <th>Прев'ю</th>
+                        <th>Файл</th>
+                        <th>Опис / Alt-текст</th>
+                        <th>Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="images/gallery1.png" alt="Настільний футбол" width="80"></td>
+                        <td><code>gallery1.png</code></td>
+                        <td><input type="text" name="edit_alt_1" value="Настільний футбол у клубі MANHATTAN" size="40"></td>
+                        <td>
+                            <button type="button">Зберегти підпис</button>
+                            <button type="button">Видалити фото</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="images/gallery2.png" alt="Основний зал" width="80"></td>
+                        <td><code>gallery2.png</code></td>
+                        <td><input type="text" name="edit_alt_2" value="Основний зал та столики" size="40"></td>
+                        <td>
+                            <button type="button">Зберегти підпис</button>
+                            <button type="button">Видалити фото</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ФУТЕР АДМІНКИ -->
+    <footer>
+        <p>&copy; 1996–2026 MANHATTAN CLUB Administrative System. Всі права захищені.</p>
+    </footer>
+
+</body>
+</html>

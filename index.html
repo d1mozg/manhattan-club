@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANHATTAN Club and Bar — Головна</title>
+</head>
+<body>
+
+    <!-- ШАПКА САЙТУ -->
+    <header>
+        <a href="index.html">
+            <img src="images/icon_manhetten.png" alt="MANHATTAN Club and Bar">
+        </a>
+        
+        <!-- Головне навігаційне меню -->
+        <nav>
+    <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="menu.html">Меню</a></li>
+        <li><a href="affiche.html">Афіша</a></li>
+        <li><a href="about.html">Чому ми?</a></li>
+        <li><a href="galery.html">Галерея</a></li>
+        <li><a href="index.html#techrider">Техрайдер</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+</nav>
+
+        <!-- Вибір мови -->
+        <label for="lang-select">Мова:</label>
+        <select id="lang-select" name="language">
+            <option value="ua" selected>UA</option>
+            <option value="en">EN</option>
+        </select>
+
+        <!-- Кнопка відкриття першого вспливаючого вікна бронювання -->
+        <button type="button" popovertarget="booking-modal-step1">БРОНЮВАННЯ</button>
+    </header>
+
+    <hr>
+
+    <!-- ОСНОВНИЙ КОНТЕНТ -->
+    <main>
+
+<!-- Секція HERO та Афіша -->
+        <section id="afisha">
+            <div>
+                <p>SINCE 1996</p>
+                <h1>TRUE. FONTANKA. UNDERGROUND.</h1>
+                <img src="images/header_image.png" alt="Інтер'єр клубу Манхетен">
+            </div>
+
+            <!-- Блок афіш: Найближчі та Скоро -->
+            <aside>
+                <article>
+                    <h2>НАЙБЛИЖЧІ</h2>
+                    <div>
+                        <img src="images/aff1.png" alt="Найближча подія 1">
+                    </div>
+                    <div>
+                       <img src="images/aff2.png" alt="Найближча подія 2">
+                    </div>
+                </article>
+
+                <article>
+                    <h2>СКОРО</h2>
+                    <div>
+                        <img src="images/aff3.png" alt="">
+                    </div>
+                    <div>
+                        <img src="images/aff4.png" alt="">
+                    </div>
+                </article>
+            </aside>
+        </section>
+
+        <hr>
+
+        <!-- Секція КУХНЯ (Карусель та перехід в меню) -->
+        <section id="menu-carousel-section">
+            <p>TOP "MANHATTAN" MENU</p>
+            <h2>КУХНЯ</h2>
+
+            <!-- Елементи керування каруселлю -->
+            <button type="button" aria-label="Попередній слайд">&lt;</button>
+            <button type="button" aria-label="Наступний слайд">&gt;</button>
+
+            <!-- Список страв у каруселі -->
+            <div id="carousel">
+                <article>
+                    <img src="images/dish1.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>200 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>Placerat id auctor nunc id vel vel curabitur. Urna fames maecenas leo elit diam nibh elit.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish2.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>500 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>Elit imperdiet faucibus euismod tortor risus volutpat molestie morbi sed. Porta ac ru.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish3.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>400 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>Pharetra morbi purus hendrerit risus vel consequat nunc, sed. Pharetra nulla imperdiet.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish4.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>200 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>Leo in arcu in gravida vivamus scelerisque non. Euismod nec amet amet egestas nisl iaculis.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish5.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>300 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>In mauris, elit nisl sed. Nulla accumsan vestibulum sed velit sagittis quis accumsan.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish6.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>500 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>Duis quisque tristique nulla cursus justo, etiam viverra nulla cras. Consectetur eget augue.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish7.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>100 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>In cras pharetra aliquet laoreet. Lectus nisi ante felis quam pharetra in maecenas ut felis.</p>
+                </article>
+
+                <article>
+                    <img src="images/dish8.png" alt="AMET DONEC">
+                    <h3>AMET DONEC.</h3>
+                    <p><strong>300 гр</strong> — <strong>550 ₴</strong></p>
+                    <p>Integer dolor et sed tempus non. Adipiscing viverra in viverra quisque pretium. Commodo.</p>
+                </article>
+            </div>
+
+            <br>
+            <!-- Посилання на сторінку повного меню (без вкладеного button) -->
+            <a href="menu.html"><strong>ВСЕ МЕНЮ</strong></a>
+        </section>
+
+        <hr>
+
+        <!-- Блок БЕНКЕТИ та ТУРИСТИ з розгортанням повного тексту -->
+        <div id="events-tourists-section">
+            <div>
+                <!-- БЕНКЕТИ -->
+                <article>
+                    <p>TOP "MANHATTAN" EVENTS</p>
+                    <h2>БЕНКЕТИ</h2>
+                    <p>Quam massa pretium et venenatis. Fringilla sagittis arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames. Eget amet hac varius aliquam. Mattis egestas suspendisse convallis en arcu et aliquet.</p>
+
+                    <!-- Кнопка розгортання повного тексту та додаткової інформації -->
+                    <details>
+                        <summary><strong>ДЕТАЛЬНІШЕ</strong></summary>
+                        <p>Porttitor risus sociis vitae nunc id lacus eget felis. Viverra et purus nibh ut. Sed ac leo sit posuere vulputate sed morbi. Donec gravida at turpis sed pulvinar. A nibh non consectetur morbi in arcu, in pellentesque mauris.</p>
+                        <p>Eu sodales netus faucibus interdum interdum platea massa egestas. Facilisis donec gravida pretium diam semper at id eleifend.</p>
+                        <h3>Додаткові можливості для бенкетів:</h3>
+                        <ul>
+                            <li>Індивідуальне розроблення меню під захід</li>
+                            <li>Професійне звукове та світлове обладнання</li>
+                            <li>Окремий VIP-зал для приватних подій</li>
+                            <li>Персональний менеджер та обслуговування high-class</li>
+                        </ul>
+                    </details>
+                </article>
+
+                <br>
+                <img src="images/table-football.png" alt="Настільний футбол у клубі Манхетен">
+                <br>
+
+                <!-- ТУРИСТИ -->
+                <article>
+                    <p>TOP "MANHATTAN" TOURISTS</p>
+                    <h2>ТУРИСТИ</h2>
+                    <p>Quam massa pretium et venenatis. Fringilla sagittis arcu massa, in sem viverra consequat. Tempus sed est interdum eget nisi, nec fames. Eget amet hac varius aliquam. Mattis egestas suspendisse convallis en arcu et aliquet.</p>
+
+                    <!-- Кнопка розгортання повного тексту та додаткової інформації -->
+                    <details>
+                        <summary><strong>ДЕТАЛЬНІШЕ</strong></summary>
+                        <p>Porttitor risus sociis vitae nunc id lacus eget felis. Viverra et purus nibh ut. Sed ac leo sit posuere vulputate sed morbi. Donec gravida at turpis sed pulvinar. A nibh non consectetur morbi in arcu, in pellentesque mauris.</p>
+                        <p>Eu sodales netus faucibus interdum interdum platea massa egestas. Facilisis donec gravida pretium diam semper at id eleifend.</p>
+                        <h3>Пропозиція для туристичних груп та гостей міста:</h3>
+                        <ul>
+                            <li>Комплексні обіди та вечері за вигідними цінами</li>
+                            <li>Англомовний персонал та меню іноземними мовами</li>
+                            <li>Зручна бронь для великих автобусних груп</li>
+                            <li>Екскурсійні сети традиційної та авторської кухні</li>
+                        </ul>
+                    </details>
+                </article>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Секція ТЕХРАЙДЕР та ЗВУКОРЕЖИСЕРИ -->
+        <section id="techrider">
+            <p>TOP "MANHATTAN" PARTY</p>
+            <h2>ТЕХРАЙДЕР</h2>
+
+            <!-- Розгортаючі елементи (Аккордеон) -->
+            <div>
+                <details open>
+                    <summary><strong>LOUDSPEAKERS</strong></summary>
+                    <ul>
+                        <li>Acoustic system BELL Top 600W x 2</li>
+                        <li>Acoustic system BELL Mid 600W x 2</li>
+                        <li>Acoustic system BELL Sub 1000W x 2</li>
+                        <li>Front monitor Yamaha SM12V 300W x 2</li>
+                        <li>Backside monitor Dynacord 500W x 2</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>AMPLIFIER</strong></summary>
+                    <ul>
+                        <li>Crest Audio Pro 8001 x 2</li>
+                        <li>Crown Macro-Tech 2400 x 1</li>
+                        <li>Dynacord L2400 x 2</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>FOH</strong></summary>
+                    <ul>
+                        <li>Soundcraft Si Impact Digital Console 32-ch</li>
+                        <li>Equalizer DBX 2231</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>BACKLINE</strong></summary>
+                    <ul>
+                        <li>Drum Kit Tama Superstar Custom</li>
+                        <li>Bass Amp Ampeg SVT-4PRO + Cabinet 8x10</li>
+                        <li>Guitar Combo Marshall JCM2000 DSL401 x 2</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>MICROPHONE SET</strong></summary>
+                    <ul>
+                        <li>Shure SM58 x 4</li>
+                        <li>Shure Beta 58A x 2</li>
+                        <li>Shure SM57 x 4</li>
+                        <li>AKG Drum Set Session I x 1</li>
+                    </ul>
+                </details>
+
+                <details>
+                    <summary><strong>DJ EQUIPMENT</strong></summary>
+                    <ul>
+                        <li>Pioneer CDJ-2000 NXS2 x 2</li>
+                        <li>Pioneer DJM-900 NXS2 x 1</li>
+                    </ul>
+                </details>
+            </div>
+
+            <!-- Звукорежисери -->
+            <aside>
+                <h3>ЗВУКОРЕЖИСЕРИ КЛУБУ МАНХЕТЕН</h3>
+                <div>
+                    <img src="images/soundengineer1.png" alt="Мстислав Малахов">
+                    <h4>МСТИСЛАВ МАЛАХОВ</h4>
+                    <p>
+                        <a href="https://viber.com" target="_blank" rel="noopener">Viber</a> | 
+                        <a href="https://t.me" target="_blank" rel="noopener">Telegram</a>
+                    </p>
+                </div>
+                <div>
+                    <img src="images/soundengineer2.png" alt="Царь Давид">
+                    <h4>ЦАРЬ ДАВИД</h4>
+                    <p>
+                        <a href="https://viber.com" target="_blank" rel="noopener">Viber</a> | 
+                        <a href="https://t.me" target="_blank" rel="noopener">Telegram</a>
+                    </p>
+                </div>
+            </aside>
+        </section>
+
+        <hr>
+
+        <!-- Секція КОНТАКТИ -->
+        <section id="contacts">
+            <p>TOP "MANHATTAN" PLACE</p>
+            <h2>КОНТАКТИ</h2>
+
+            <div>
+                <h3>АДРЕСА</h3>
+                <p>Вулиця Басейна 19 (вхід біля колон в арку)</p>
+
+                <h3>ТЕЛЕФОН</h3>
+                <p><a href="tel:+78127131945">+38 (050) 920-29-15</a></p>
+                <p><a href="tel:+380487131945">+38 (048) 713-19-45</a></p>
+
+                <h3>РЕЖИМ РОБОТИ</h3>
+                <p>Щоденно з 12:00 до 06:00</p>
+
+                <hr>
+
+                <h3>ДИРЕКТОР</h3>
+                <p>Віктор Ларіонов: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+
+                <h3>АРТ ДИРЕКТОР</h3>
+                <p>Вікторія Онашко: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+            </div>
+
+            <!-- Карта розташування -->
+            <div>
+                <h3>КАРТА</h3>
+                <a href="https://maps.google.com/?q=вулиця+Басейна+19+Київ" target="_blank" rel="noopener" title="Відкрити карту в Google Maps">
+                    <img src="images/map.jpg" alt="Карта розташування закладу за адресою вул. Басейна 19">
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ФУТЕР (ПІДВАЛ) -->
+    <footer>
+        <p>&copy; 1996–2026 MANHATTAN CLUB AND BAR. Всі права захищені.</p>
+    </footer>
+
+    <!-- ВСПЛИВАЮЧІ ВІКНА БРОНЮВАННЯ -->
+
+    <!-- ВСПЛИВАЮЧЕ ВІКНО 1: Введення даних користувача (ГОЛОВНЕ ОКТЕМЕ ВІКНО) -->
+    <div id="booking-modal-step1" popover>
+        <header>
+            <h2>БРОНЮВАННЯ</h2>
+            <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+
+        <form>
+            <p>
+                <label for="fio"><strong>ВВЕДІТЬ ВАШ ПІБ:</strong></label><br>
+                <input type="text" id="fio" name="fio" placeholder="Іванов Іван Іванович" required>
+            </p>
+
+            <p>
+                <label for="phone"><strong>ВВЕДІТЬ НОМЕР ТЕЛЕФОНУ:</strong></label><br>
+                <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required>
+            </p>
+
+            <p>
+                <label for="guests"><strong>ВВЕДІТЬ КІЛЬКІСТЬ ОСІБ ЗА СТОЛИК:</strong></label><br>
+                <input type="number" id="guests" name="guests" min="1" max="20" placeholder="2" required>
+            </p>
+
+            <p>
+                <label for="cert"><strong>ВВЕДІТЬ АКЦІЙНИЙ СЕРТИФІКАТ (ЗА НАЯВНОСТІ):</strong></label><br>
+                <input type="text" id="cert" name="certificate" placeholder="XXXX-XXXX">
+            </p>
+
+            <p>
+                <label for="comments"><strong>ДОДАТКОВІ ПОБАЖАННЯ (ЗА ПОТРЕБИ):</strong></label><br>
+                <textarea id="comments" name="comments" rows="3" placeholder="Ваші побажання..."></textarea>
+            </p>
+
+            <div>
+                <img src="images/booking-preview.png" alt="Попередній перегляд зали">
+            </div>
+            <br>
+            <!-- Відкриває Крок 2 поверх Кроку 1 -->
+            <button type="button" popovertarget="booking-modal-step2" popovertargetaction="show">ДАЛІ</button>
+        </form>
+
+        <!-- ВСПЛИВАЮЧЕ ВІКНО 2: Вибір дати (ВКЛАДЕНЕ В КРОК 1) -->
+        <div id="booking-modal-step2" popover>
+            <header>
+                <h2>БРОНЮВАННЯ</h2>
+                <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+            </header>
+
+            <form>
+                <fieldset>
+                    <legend><strong>ОБЕРІТЬ ДЕНЬ:</strong></legend>
+                    <input type="date" id="booking-date" name="booking_date" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>ВІЛЬНИЙ ЧАС (*ЧАС ВАШОГО ПРИХОДУ):</strong></legend>
+
+                    <p>
+                        <span><strong>ЗАНЯТО:</strong> [Заповнена кнопка]</span> | 
+                        <span><strong>ВІЛЬНО:</strong> [Прозора кнопка]</span>
+                    </p>
+
+                    <div>
+                        <label><input type="radio" name="time_slot" value="12:00" disabled> 12:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="14:00"> 14:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="16:00"> 16:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="18:00"> 18:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="20:00" disabled> 20:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="22:00"> 22:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="00:00"> 00:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="02:00"> 02:00 (Вільно)</label>
+                    </div>
+                </fieldset>
+
+                <br>
+                <!-- НАЗАД закриває Крок 2 і повертає до Кроку 1 -->
+                <button type="button" popovertarget="booking-modal-step2" popovertargetaction="hide">НАЗАД</button>
+                <!-- Відкриває Крок 3 поверх Кроку 2 -->
+                <button type="button" popovertarget="booking-modal-step3" popovertargetaction="show">ЗАВЕРШИТИ</button>
+            </form>
+
+            <!-- ВСПЛИВАЮЧЕ ВІКНО 3: Підтвердження (ВКЛАДЕНЕ В КРОК 2) -->
+            <div id="booking-modal-step3" popover>
+                <header>
+                    <h2>БРОНЮВАННЯ</h2>
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+                </header>
+
+                <section>
+                    <h3>ДЯКУЮ! ВИ ЗАБРОНЮВАЛИ СТОЛИК</h3>
+                    <p><em>*НЕЗАБАРОМ ВАМ НАДІЙДЕ СМС ЗА ВКАЗАНИМ НОМЕРОМ. ЗА НАЯВНОСТІ ПИТАНЬ, ЗВЕРТАЙТЕСЯ ЗА НОМЕРОМ В СМС</em></p>
+                    
+                    <br>
+                    <!-- СУПЕР закриває повністю весь комплекс вікон -->
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide">СУПЕР!</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANHATTAN Club and Bar — Афіша</title>
+</head>
+<body>
+
+    <!-- ШАПКА САЙТУ -->
+    <header>
+        <a href="index.html">
+            <img src="images/icon_manhetten.png" alt="MANHATTAN Club and Bar">
+        </a>
+        
+        <!-- Головне навігаційне меню -->
+        <nav>
+    <ul>
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="menu.html">Меню</a></li>
+        <li><a href="affiche.html">Афіша</a></li>
+        <li><a href="about.html">Чому ми?</a></li>
+        <li><a href="galery.html">Галерея</a></li>
+        <li><a href="index.html#techrider">Техрайдер</a></li>
+        <li><a href="#contacts">Контакти</a></li>
+    </ul>
+</nav>
+
+        <!-- Вибір мови -->
+        <label for="lang-select">Мова:</label>
+        <select id="lang-select" name="language">
+            <option value="ua" selected>UA</option>
+            <option value="en">EN</option>
+        </select>
+
+        <!-- Кнопка відкриття першого вспливаючого вікна бронювання -->
+        <button type="button" popovertarget="booking-modal-step1">БРОНЮВАННЯ</button>
+    </header>
+
+    <hr>
+
+    <!-- ОСНОВНИЙ КОНТЕНТ АФІШІ -->
+    <main>
+
+        <!-- Заголовок сторінки -->
+        <section id="afisha-header">
+            <p>TOP "MANHATTAN" PARTY</p>
+            <h1>АФІША</h1>
+        </section>
+
+        <!-- Секція з сіткою подій -->
+        <section id="events-section">
+            <h2>ПОДІЇ ТА КОНЦЕРТИ</h2>
+
+            <div class="events-grid">
+
+                <!-- Подія 1 -->
+                <article class="event-card">
+                    <button type="button" popovertarget="event-modal-1" aria-label="Детальніше про РОК В МАНХЭТТЕНЕ">
+                        <img src="images/afisha1.png" alt="РОК В МАНХЭТТЕНЕ">
+                    </button>
+                    <h3>РОК В МАНХЭТТЕНЕ</h3>
+                    <p class="event-date"><strong>17.07.2022 | 19:00</strong></p>
+                    <p class="event-price">Вхід: 250 ₴</p>
+                    <p class="event-payment-info"><em>*Оплата квитка здійснюється при вході в заклад</em></p>
+                </article>
+
+                <!-- Подія 2 -->
+                <article class="event-card">
+                    <button type="button" popovertarget="event-modal-2" aria-label="Детальніше про FINAL CONCERT">
+                        <img src="images/afisha2.png" alt="FINAL CONCERT">
+                    </button>
+                    <h3>FINAL CONCERT</h3>
+                    <p class="event-date"><strong>23.07 | 18:00</strong></p>
+                    <p class="event-price">ВХІД - FREE</p>
+                    <p class="event-payment-info"><em>*Вхід вільний (оплата квитка не потрібна)</em></p>
+                </article>
+
+                <!-- Подія 3 -->
+                <article class="event-card">
+                    <button type="button" popovertarget="event-modal-3" aria-label="Детальніше про FONTANKA FEST">
+                        <img src="images/afisha3.png" alt="FONTANKA FEST">
+                    </button>
+                    <h3>FONTANKA FEST</h3>
+                    <p class="event-date"><strong>24 липня | 19:00</strong></p>
+                    <p class="event-price">Вхід вільний</p>
+                    <p class="event-payment-info"><em>*Вхід вільний (оплата квитка не потрібна)</em></p>
+                </article>
+
+                <!-- Подія 4 -->
+                <article class="event-card">
+                    <button type="button" popovertarget="event-modal-4" aria-label="Детальніше про THE GRACE / БАКЕН / SIRIUS">
+                        <img src="images/afisha4.png" alt="THE GRACE / БАКЕН / SIRIUS">
+                    </button>
+                    <h3>THE GRACE / БАКЕН / SIRIUS</h3>
+                    <p class="event-date"><strong>17 липня | 19:00</strong></p>
+                    <p class="event-price">Вхід: 200 ₴</p>
+                    <p class="event-payment-info"><em>*Оплата квитка здійснюється при вході в заклад</em></p>
+                </article>
+
+                <!-- Подія 5 -->
+                <article class="event-card">
+                    <button type="button" popovertarget="event-modal-5" aria-label="Детальніше про РЫБЫ">
+                        <img src="images/afisha1.png" alt="РЫБЫ">
+                    </button>
+                    <h3>РЫБЫ (Прем'єра)</h3>
+                    <p class="event-date"><strong>22 липня | 19:00</strong></p>
+                    <p class="event-price">Вхід: 250 ₴</p>
+                    <p class="event-payment-info"><em>*Оплата квитка здійснюється при вході в заклад</em></p>
+                </article>
+
+                <!-- Подія 6 -->
+                <article class="event-card">
+                    <button type="button" popovertarget="event-modal-6" aria-label="Детальніше про CRAZY BAKE ROCK SHOW">
+                        <img src="images/afisha2.png" alt="CRAZY BAKE ROCK SHOW">
+                    </button>
+                    <h3>CRAZY BAKE ROCK SHOW</h3>
+                    <p class="event-date"><strong>30 липня | 20:00</strong></p>
+                    <p class="event-price">Вхід: 300 ₴</p>
+                    <p class="event-payment-info"><em>*Оплата квитка здійснюється при вході в заклад</em></p>
+                </article>
+
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Секція КОНТАКТИ -->
+        <section id="contacts">
+            <p>TOP "MANHATTAN" PLACE</p>
+            <h2>КОНТАКТИ</h2>
+
+            <div>
+                <h3>АДРЕСА</h3>
+                <p>Вулиця Басейна 19 (вхід біля колон в арку)</p>
+
+                <h3>ТЕЛЕФОН</h3>
+                <p><a href="tel:+78127131945">+38 (050) 920-29-15</a></p>
+                <p><a href="tel:+380487131945">+38 (048) 713-19-45</a></p>
+
+                <h3>РЕЖИМ РОБОТИ</h3>
+                <p>Щоденно з 12:00 до 06:00</p>
+
+                <hr>
+
+                <h3>ДИРЕКТОР</h3>
+                <p>Віктор Ларіонов: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+
+                <h3>АРТ ДИРЕКТОР</h3>
+                <p>Вікторія Онашко: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+            </div>
+
+            <!-- Карта розташування -->
+            <div>
+                <h3>КАРТА</h3>
+                <a href="https://maps.google.com/?q=вулиця+Басейна+19+Київ" target="_blank" rel="noopener" title="Відкрити карту в Google Maps">
+                    <img src="images/map.jpg" alt="Карта розташування закладу за адресою вул. Басейна 19">
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ФУТЕР (ПІДВАЛ) -->
+    <footer>
+        <p>&copy; 1996–2026 MANHATTAN CLUB AND BAR. Всі права захищені.</p>
+    </footer>
+
+    <!-- ВСПЛИВАЮЧІ ВІКНА ДЕТАЛЕЙ ПОДІЙ (АФІША) -->
+
+    <!-- Модальне вікно Події 1 -->
+    <div id="event-modal-1" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="event-modal-1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        <article>
+            <img src="images/afisha1.png" alt="Збільшений постер РОК В МАНХЭТТЕНЕ">
+            <h3>РОК В МАНХЭТТЕНЕ</h3>
+            <p><strong>Дата та час:</strong> 17 липня 2022 року, 19:00</p>
+            <p><strong>Вартість квитка:</strong> 250 ₴</p>
+            <p><strong>Умови оплати:</strong> Оплата квитка здійснюється при вході в заклад.</p>
+            <p><strong>Опис події:</strong> Великий вечір живої рок-музики в клубі MANHATTAN! На сцені виступлять кращі локальні виконаці з потужним живим звуком. На вас чекає неймовірна атмосфера, авторські треки та улюблені кавери.</p>
+            <p>Забронювати столик можна заздалегідь через кнопку «БРОНЮВАННЯ» у шапці сайту.</p>
+        </article>
+    </div>
+
+    <!-- Модальне вікно Події 2 -->
+    <div id="event-modal-2" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="event-modal-2" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        <article>
+            <img src="images/afisha2.png" alt="Збільшений постер FINAL CONCERT">
+            <h3>FINAL CONCERT</h3>
+            <p><strong>Дата та час:</strong> 23 липня, 18:00</p>
+            <p><strong>Вартість квитка:</strong> Вхід вільний (FREE ENTRY)</p>
+            <p><strong>Умови оплати:</strong> Вхід вільний, оплата квитка не потрібна.</p>
+            <p><strong>Опис події:</strong> Фінальний концерт літньої серії вечірок. Набережна річки Фонтанки, 90. Живий звук, драйвовий світловий супровід та спеціальні гості фестивалю.</p>
+        </article>
+    </div>
+
+    <!-- Модальне вікно Події 3 -->
+    <div id="event-modal-3" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="event-modal-3" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        <article>
+            <img src="images/afisha3.png" alt="Збільшений постер FONTANKA FEST">
+            <h3>FONTANKA FEST</h3>
+            <p><strong>Дата та час:</strong> 24 липня, 19:00</p>
+            <p><strong>Вартість квитка:</strong> Вхід вільний</p>
+            <p><strong>Умови оплати:</strong> Вхід вільний, оплата квитка не потрібна.</p>
+            <p><strong>Опис події:</strong> Майрайський бакен, своя атмосфера, ефект кореша, марафон диджеїв та драм-атмосфера протягом усього вечора.</p>
+        </article>
+    </div>
+
+    <!-- Модальне вікно Події 4 -->
+    <div id="event-modal-4" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="event-modal-4" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        <article>
+            <img src="images/afisha4.png" alt="Збільшений постер THE GRACE / БАКЕН / SIRIUS">
+            <h3>THE GRACE / БАКЕН / SIRIUS</h3>
+            <p><strong>Дата та час:</strong> 17 липня, 19:00</p>
+            <p><strong>Вартість квитка:</strong> 200 ₴</p>
+            <p><strong>Умови оплати:</strong> Оплата квитка здійснюється при вході в заклад.</p>
+            <p><strong>Опис події:</strong> Спільний концерт трьох гуртів: The Grace, Кустарные Амбиции та Sirius. Незабутня шоу-програма та живе виконання.</p>
+        </article>
+    </div>
+
+    <!-- Модальне вікно Події 5 -->
+    <div id="event-modal-5" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="event-modal-5" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        <article>
+            <img src="images/afisha1.png" alt="Збільшений постер РЫБЫ">
+            <h3>РЫБЫ (Прем'єра програми)</h3>
+            <p><strong>Дата та час:</strong> 22 липня, 19:00</p>
+            <p><strong>Вартість квитка:</strong> 250 ₴</p>
+            <p><strong>Умови оплати:</strong> Оплата квитка здійснюється при вході в заклад.</p>
+            <p><strong>Опис події:</strong> Прем'єра нової програми гурту «РЫБЫ» за підтримки гурту «Продам Гараж». Не пропустіть головну прем'єру тижня!</p>
+        </article>
+    </div>
+
+    <!-- Модальне вікно Події 6 -->
+    <div id="event-modal-6" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="event-modal-6" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+        <article>
+            <img src="images/afisha2.png" alt="Збільшений постер CRAZY BAKE ROCK SHOW">
+            <h3>CRAZY BAKE ROCK SHOW</h3>
+            <p><strong>Дата та час:</strong> 30 липня, 20:00</p>
+            <p><strong>Вартість квитка:</strong> 300 ₴</p>
+            <p><strong>Умови оплати:</strong> Оплата квитка здійснюється при вході в заклад.</p>
+            <p><strong>Опис події:</strong> Божевільне рок-шоу від Crazy Bake! Потужний звук, гітарні соло та незабутній вечір у колі шанувальників якісної музики.</p>
+        </article>
+    </div>
+
+    <!-- ВСПЛИВАЮЧІ ВІКНА БРОНЮВАННЯ -->
+     
+    <!-- ВСПЛИВАЮЧЕ ВІКНО 1: Введення даних користувача (ГОЛОВНЕ ОКРЕМЕ ВІКНО) -->
+    <div id="booking-modal-step1" popover>
+        <header>
+            <h2>БРОНЮВАННЯ</h2>
+            <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+
+        <form>
+            <p>
+                <label for="fio"><strong>ВВЕДІТЬ ВАШ ПІБ:</strong></label><br>
+                <input type="text" id="fio" name="fio" placeholder="Іванов Іван Іванович" required>
+            </p>
+
+            <p>
+                <label for="phone"><strong>ВВЕДІТЬ НОМЕР ТЕЛЕФОНУ:</strong></label><br>
+                <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required>
+            </p>
+
+            <p>
+                <label for="guests"><strong>ВВЕДІТЬ КІЛЬКІСТЬ ОСІБ ЗА СТОЛИК:</strong></label><br>
+                <input type="number" id="guests" name="guests" min="1" max="20" placeholder="2" required>
+            </p>
+
+            <p>
+                <label for="cert"><strong>ВВЕДІТЬ АКЦІЙНИЙ СЕРТИФІКАТ (ЗА НАЯВНОСТІ):</strong></label><br>
+                <input type="text" id="cert" name="certificate" placeholder="XXXX-XXXX">
+            </p>
+
+            <p>
+                <label for="comments"><strong>ДОДАТКОВІ ПОБАЖАННЯ (ЗА ПОТРЕБИ):</strong></label><br>
+                <textarea id="comments" name="comments" rows="3" placeholder="Ваші побажання..."></textarea>
+            </p>
+
+            <div>
+                <img src="images/booking-preview.png" alt="Попередній перегляд зали">
+            </div>
+            <br>
+            <!-- Відкриває Крок 2 поверх Кроку 1 -->
+            <button type="button" popovertarget="booking-modal-step2" popovertargetaction="show">ДАЛІ</button>
+        </form>
+
+        <!-- ВСПЛИВАЮЧЕ ВІКНО 2: Вибір дати (ВКЛАДЕНЕ В КРОК 1) -->
+        <div id="booking-modal-step2" popover>
+            <header>
+                <h2>БРОНЮВАННЯ</h2>
+                <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+            </header>
+
+            <form>
+                <fieldset>
+                    <legend><strong>ОБЕРІТЬ ДЕНЬ:</strong></legend>
+                    <input type="date" id="booking-date" name="booking_date" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>ВІЛЬНИЙ ЧАС (*ЧАС ВАШОГО ПРИХОДУ):</strong></legend>
+
+                    <p>
+                        <span><strong>ЗАНЯТО:</strong> [Заповнена кнопка]</span> | 
+                        <span><strong>ВІЛЬНО:</strong> [Прозора кнопка]</span>
+                    </p>
+
+                    <div>
+                        <label><input type="radio" name="time_slot" value="12:00" disabled> 12:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="14:00"> 14:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="16:00"> 16:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="18:00"> 18:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="20:00" disabled> 20:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="22:00"> 22:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="00:00"> 00:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="02:00"> 02:00 (Вільно)</label>
+                    </div>
+                </fieldset>
+
+                <br>
+                <!-- НАЗАД закриває Крок 2 і повертає до Кроку 1 -->
+                <button type="button" popovertarget="booking-modal-step2" popovertargetaction="hide">НАЗАД</button>
+                <!-- Відкриває Крок 3 поверх Кроку 2 -->
+                <button type="button" popovertarget="booking-modal-step3" popovertargetaction="show">ЗАВЕРШИТИ</button>
+            </form>
+
+            <!-- ВСПЛИВАЮЧЕ ВІКНО 3: Підтвердження (ВКЛАДЕНЕ В КРОК 2) -->
+            <div id="booking-modal-step3" popover>
+                <header>
+                    <h2>БРОНЮВАННЯ</h2>
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+                </header>
+
+                <section>
+                    <h3>ДЯКУЮ! ВИ ЗАБРОНЮВАЛИ СТОЛИК</h3>
+                    <p><em>*НЕЗАБАРОМ ВАМ НАДІЙДЕ СМС ЗА ВКАЗАНИМ НОМЕРОМ. ЗА НАЯВНОСТІ ПИТАНЬ, ЗВЕРТАЙТЕСЯ ЗА НОМЕРОМ В СМС</em></p>
+                    
+                    <br>
+                    <!-- СУПЕР закриває повністю весь комплекс вікон -->
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide">СУПЕР!</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

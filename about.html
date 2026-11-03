@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANHATTAN Club and Bar — Корпоративи</title>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="images/icon_manhetten.png" alt="MANHATTAN Club and Bar">
+        </a>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="menu.html">Меню</a></li>
+                <li><a href="affiche.html">Афіша</a></li>
+                <li><a href="about.html">Чому ми?</a></li>
+                <li><a href="galery.html">Галерея</a></li>
+                <li><a href="index.html#techrider">Техрайдер</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <!-- Вибір мови -->
+        <label for="lang-select">Мова:</label>
+        <select id="lang-select" name="language">
+            <option value="ua" selected>UA</option>
+            <option value="en">EN</option>
+        </select>
+
+        <!-- Кнопка відкриття першого вспливаючого вікна бронювання -->
+        <button type="button" popovertarget="booking-modal-step1">БРОНЮВАННЯ</button>
+    </header>
+
+    <hr>
+
+    <!-- ОСНОВНИЙ КОНТЕНТ -->
+    <main>
+
+        <!-- Секція КОРПОРАТИВИ -->
+        <section id="corporate">
+            <p>TOP "MANHATTAN" EVENTS</p>
+            <h1>КОРПОРАТИВИ</h1>
+
+            <h2>ОПЦІЇ КОРПОРАТИВІВ</h2>
+
+            <div>
+                <!-- Блок 1 -->
+                <figure class="corporate-card">
+                    <img src="images/cook_icon.png" alt="Барна стійка">
+                    <figcaption><strong>Фуршетне меню від 1000 грн. на людину (до 150 людей).</strong></figcaption>
+                </figure>
+
+                <!-- Блок 2 -->
+                <figure class="corporate-card">
+                    <img src="images/furtsher_icon.png" alt="Фуршетний стіл">
+                    <figcaption><strong>Фуршетне меню від 1000 грн. на людину (до 150 людей).</strong></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Секція ЧОМУ МИ? -->
+        <section id="why-us">
+            <h2>ЧОМУ МИ?</h2>
+
+            <ul>
+                <li>Окремий зал на 30 людей з професійною системою караоке</li>
+                <li>Зручна парковка і близькість до трьох станцій метро у центрі міста</li>
+                <li>Великі екрани</li>
+                <li>Танцпол із сучасною звуковою та світловою апаратурою</li>
+                <li>Сцена з проекційним екраном</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <!-- Секція КОНТАКТИ -->
+        <section id="contacts">
+            <p>TOP "MANHATTAN" PLACE</p>
+            <h2>КОНТАКТИ</h2>
+
+            <div>
+                <div class="info">
+                    <h3>АДРЕСА</h3>
+                    <p>Вулиця Басейна 19 (вхід біля колон в арку)</p>
+
+                    <h3>ТЕЛЕФОН</h3>
+                    <p><a href="tel:+380973983041">+380 (97) 398 30 41</a></p>
+
+                    <h3>РЕЖИМ РОБОТИ</h3>
+                    <p>Щоденно з 12:00 до 06:00</p>
+
+                    <hr>
+                </div>
+                <div class="persons">
+                    <h3>ДИРЕКТОР</h3>
+                    <p>Віктор Ларіонов: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+
+                    <h3>АРТ ДИРЕКТОР</h3>
+                    <p>Вікторія Онашко: <a href="tel:+380973983041">+380 (97) 398-30-41</a></p>
+                </div>
+            </div>
+
+            <!-- Карта розташування -->
+            <div>
+                <h3>КАРТА</h3>
+                <a href="https://maps.google.com/?q=вулиця+Басейна+19+Київ" target="_blank" rel="noopener" title="Відкрити карту в Google Maps">
+                    <img src="images/map.jpg" alt="Карта розташування закладу за адресою вул. Басейна 19">
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <!-- ФУТЕР (ПІДВАЛ) -->
+    <footer>
+        <p>&copy; 1996–2026 MANHATTAN CLUB AND BAR. Всі права захищені.</p>
+    </footer>
+
+
+    <!-- ВСПЛИВАЮЧІ ВІКНА БРОНЮВАННЯ -->
+
+    <!-- ВСПЛИВАЮЧЕ ВІКНО 1: Введення даних користувача (ГОЛОВНЕ ОКРЕМЕ ВІКНО) -->
+    <div id="booking-modal-step1" popover>
+        <header>
+            <h2>БРОНЮВАННЯ</h2>
+            <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+        </header>
+
+        <form>
+            <p>
+                <label for="fio"><strong>ВВЕДІТЬ ВАШ ПІБ:</strong></label><br>
+                <input type="text" id="fio" name="fio" placeholder="Іванов Іван Іванович" required>
+            </p>
+
+            <p>
+                <label for="phone"><strong>ВВЕДІТЬ НОМЕР ТЕЛЕФОНУ:</strong></label><br>
+                <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required>
+            </p>
+
+            <p>
+                <label for="guests"><strong>ВВЕДІТЬ КІЛЬКІСТЬ ОСІБ ЗА СТОЛИК:</strong></label><br>
+                <input type="number" id="guests" name="guests" min="1" max="20" placeholder="2" required>
+            </p>
+
+            <p>
+                <label for="cert"><strong>ВВЕДІТЬ АКЦІЙНИЙ СЕРТИФІКАТ (ЗА НАЯВНОСТІ):</strong></label><br>
+                <input type="text" id="cert" name="certificate" placeholder="XXXX-XXXX">
+            </p>
+
+            <p>
+                <label for="comments"><strong>ДОДАТКОВІ ПОБАЖАННЯ (ЗА ПОТРЕБИ):</strong></label><br>
+                <textarea id="comments" name="comments" rows="3" placeholder="Ваші побажання..."></textarea>
+            </p>
+
+            <div>
+                <img src="images/booking-preview.png" alt="Попередній перегляд зали">
+            </div>
+            <br>
+            <!-- Відкриває Крок 2 поверх Кроку 1 -->
+            <button type="button" popovertarget="booking-modal-step2" popovertargetaction="show">ДАЛІ</button>
+        </form>
+
+        <!-- ВСПЛИВАЮЧЕ ВІКНО 2: Вибір дати (ВКЛАДЕНЕ В КРОК 1) -->
+        <div id="booking-modal-step2" popover>
+            <header>
+                <h2>БРОНЮВАННЯ</h2>
+                <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+            </header>
+
+            <form>
+                <fieldset>
+                    <legend><strong>ОБЕРІТЬ ДЕНЬ:</strong></legend>
+                    <input type="date" id="booking-date" name="booking_date" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend><strong>ВІЛЬНИЙ ЧАС (*ЧАС ВАШОГО ПРИХОДУ):</strong></legend>
+
+                    <p>
+                        <span><strong>ЗАНЯТО:</strong> [Заповнена кнопка]</span> | 
+                        <span><strong>ВІЛЬНО:</strong> [Прозора кнопка]</span>
+                    </p>
+
+                    <div>
+                        <label><input type="radio" name="time_slot" value="12:00" disabled> 12:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="14:00"> 14:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="16:00"> 16:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="18:00"> 18:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="20:00" disabled> 20:00 (Занято)</label><br>
+                        <label><input type="radio" name="time_slot" value="22:00"> 22:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="00:00"> 00:00 (Вільно)</label><br>
+                        <label><input type="radio" name="time_slot" value="02:00"> 02:00 (Вільно)</label>
+                    </div>
+                </fieldset>
+
+                <br>
+                <!-- НАЗАД закриває Крок 2 і повертає до Кроку 1 -->
+                <button type="button" popovertarget="booking-modal-step2" popovertargetaction="hide">НАЗАД</button>
+                <!-- Відкриває Крок 3 поверх Кроку 2 -->
+                <button type="button" popovertarget="booking-modal-step3" popovertargetaction="show">ЗАВЕРШИТИ</button>
+            </form>
+
+            <!-- ВСПЛИВАЮЧЕ ВІКНО 3: Підтвердження (ВКЛАДЕНЕ В КРОК 2) -->
+            <div id="booking-modal-step3" popover>
+                <header>
+                    <h2>БРОНЮВАННЯ</h2>
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+                </header>
+
+                <section>
+                    <h3>ДЯКУЮ! ВИ ЗАБРОНЮВАЛИ СТОЛИК</h3>
+                    <p><em>*НЕЗАБАРОМ ВАМ НАДІЙДЕ СМС ЗА ВКАЗАНИМ НОМЕРОМ. ЗА НАЯВНОСТІ ПИТАНЬ, ЗВЕРТАЙТЕСЯ ЗА НОМЕРОМ В СМС</em></p>
+                    
+                    <br>
+                    <!-- СУПЕР закриває повністю весь комплекс вікон -->
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide">СУПЕР!</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
