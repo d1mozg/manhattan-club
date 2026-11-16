@@ -22,16 +22,16 @@
         
         <!-- Головне навігаційне меню -->
         <nav>
-    <ul>
-        <li><a href="index.html">Головна</a></li>
-        <li><a href="menu.html">Меню</a></li>
-        <li><a href="affiche.html">Афіша</a></li>
-        <li><a href="about.html">Чому ми?</a></li>
-        <li><a href="galery.html">Галерея</a></li>
-        <li><a href="index.html#techrider">Техрайдер</a></li>
-        <li><a href="#contacts">Контакти</a></li>
-    </ul>
-</nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="menu.html">Меню</a></li>
+                <li><a href="affiche.html">Афіша</a></li>
+                <li><a href="about.html">Чому ми?</a></li>
+                <li><a href="galery.html">Галерея</a></li>
+                <li><a href="index.html#techrider">Техрайдер</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
 
         <!-- Вибір мови -->
         <label for="lang-select">Мова:</label>
@@ -49,7 +49,7 @@
     <!-- ОСНОВНИЙ КОНТЕНТ -->
     <main>
 
-<!-- Секція HERO та Афіша -->
+        <!-- Секція HERO та Афіша -->
         <section id="afisha">
             <div>
                 <p>SINCE 1996</p>
@@ -57,26 +57,26 @@
                 <img src="images/header_image.png" alt="Інтер'єр клубу Манхетен">
             </div>
 
-            <!-- Блок афіш: Найближчі та Скоро -->
+            <!-- Блок афіш: Найближчі та Скоро (клікабельні через Popover API) -->
             <aside>
                 <article>
                     <h2>НАЙБЛИЖЧІ</h2>
-                    <div>
-                        <img src="images/aff1.png" alt="Найближча подія 1">
-                    </div>
-                    <div>
-                       <img src="images/aff2.png" alt="Найближча подія 2">
-                    </div>
+                    <button type="button" popovertarget="home-event-1" aria-label="Детальніше про РОК В МАНХЭТТЕНЕ">
+                        <img src="images/aff1.png" alt="РОК В МАНХЭТТЕНЕ">
+                    </button>
+                    <button type="button" popovertarget="home-event-2" aria-label="Детальніше про FINAL CONCERT">
+                        <img src="images/aff2.png" alt="FINAL CONCERT">
+                    </button>
                 </article>
 
                 <article>
                     <h2>СКОРО</h2>
-                    <div>
-                        <img src="images/aff3.png" alt="">
-                    </div>
-                    <div>
-                        <img src="images/aff4.png" alt="">
-                    </div>
+                    <button type="button" popovertarget="home-event-3" aria-label="Детальніше про FONTANKA FEST">
+                        <img src="images/aff3.png" alt="FONTANKA FEST">
+                    </button>
+                    <button type="button" popovertarget="home-event-4" aria-label="Детальніше про THE GRACE / БАКЕН / SIRIUS">
+                        <img src="images/aff4.png" alt="THE GRACE / БАКЕН / SIRIUS">
+                    </button>
                 </article>
             </aside>
         </section>
@@ -89,8 +89,8 @@
             <h2>КУХНЯ</h2>
 
             <!-- Елементи керування каруселлю -->
-            <button type="button" aria-label="Попередній слайд">&lt;</button>
-            <button type="button" aria-label="Наступний слайд">&gt;</button>
+            <button type="button" aria-label="Попередній слайд"><</button>
+            <button type="button" aria-label="Наступний слайд">></button>
 
             <!-- Список страв у каруселі -->
             <div id="carousel">
@@ -308,7 +308,7 @@
                 <p>Вулиця Басейна 19 (вхід біля колон в арку)</p>
 
                 <h3>ТЕЛЕФОН</h3>
-                <p><a href="tel:+78127131945">+38 (050) 920-29-15</a></p>
+                <p><a href="tel:+380509202915">+38 (050) 920-29-15</a></p>
                 <p><a href="tel:+380487131945">+38 (048) 713-19-45</a></p>
 
                 <h3>РЕЖИМ РОБОТИ</h3>
@@ -338,16 +338,77 @@
 
     <!-- ФУТЕР (ПІДВАЛ) -->
     <footer>
-        <p>&copy; 1996–2026 MANHATTAN CLUB AND BAR. Всі права захищені.</p>
+        <p>© 1996–2026 MANHATTAN CLUB AND BAR. Всі права захищені.</p>
     </footer>
+
+    <!-- ВСПЛИВАЮЧІ ВІКНА ПОДІЙ З ГОЛОВНОЇ СТОРІНКИ -->
+    <div id="home-event-1" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="home-event-1" popovertargetaction="hide" aria-label="Закрити">×</button>
+        </header>
+        <article>
+            <img src="images/aff1.png" alt="РОК В МАНХЭТТЕНЕ">
+            <h3>РОК В МАНХЭТТЕНЕ</h3>
+            <p><strong>Дата та час:</strong> 17 липня, 19:00</p>
+            <p><strong>Вартість квитка:</strong> 250 ₴</p>
+            <p><strong>Умови оплати:</strong> Оплата квитка здійснюється при вході в заклад.</p>
+            <p><strong>Опис події:</strong> Великий вечір живої рок-музики в клубі MANHATTAN! На сцені виступлять кращі локальні виконавці з потужним живим звуком.</p>
+        </article>
+    </div>
+
+    <div id="home-event-2" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="home-event-2" popovertargetaction="hide" aria-label="Закрити">×</button>
+        </header>
+        <article>
+            <img src="images/aff2.png" alt="FINAL CONCERT">
+            <h3>FINAL CONCERT</h3>
+            <p><strong>Дата та час:</strong> 23 липня, 18:00</p>
+            <p><strong>Вартість квитка:</strong> Вхід вільний (FREE ENTRY)</p>
+            <p><strong>Умови оплати:</strong> Вхід вільний, оплата квитка не потрібна.</p>
+            <p><strong>Опис події:</strong> Фінальний концерт літньої серії вечірок. Живий звук, драйвовий світловий супровід та спеціальні гості.</p>
+        </article>
+    </div>
+
+    <div id="home-event-3" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="home-event-3" popovertargetaction="hide" aria-label="Закрити">×</button>
+        </header>
+        <article>
+            <img src="images/aff3.png" alt="FONTANKA FEST">
+            <h3>FONTANKA FEST</h3>
+            <p><strong>Дата та час:</strong> 24 липня, 19:00</p>
+            <p><strong>Вартість квитка:</strong> Вхід вільний</p>
+            <p><strong>Умови оплати:</strong> Вхід вільний, оплата квитка не потрібна.</p>
+            <p><strong>Опис події:</strong> Своя атмосфера, марафон діджеїв та жива музика протягом усього вечора.</p>
+        </article>
+    </div>
+
+    <div id="home-event-4" popover>
+        <header>
+            <h2>ПОДРОБИЦІ ПОДІЇ</h2>
+            <button type="button" popovertarget="home-event-4" popovertargetaction="hide" aria-label="Закрити">×</button>
+        </header>
+        <article>
+            <img src="images/aff4.png" alt="THE GRACE / БАКЕН / SIRIUS">
+            <h3>THE GRACE / БАКЕН / SIRIUS</h3>
+            <p><strong>Дата та час:</strong> 30 липня, 19:00</p>
+            <p><strong>Вартість квитка:</strong> 200 ₴</p>
+            <p><strong>Умови оплати:</strong> Оплата квитка здійснюється при вході в заклад.</p>
+            <p><strong>Опис події:</strong> Спільний концерт трьох гуртів, шоу-програма та живе виконання.</p>
+        </article>
+    </div>
 
     <!-- ВСПЛИВАЮЧІ ВІКНА БРОНЮВАННЯ -->
 
-    <!-- ВСПЛИВАЮЧЕ ВІКНО 1: Введення даних користувача (ГОЛОВНЕ ОКТЕМЕ ВІКНО) -->
+    <!-- ВСПЛИВАЮЧЕ ВІКНО 1: Введення даних користувача (ГОЛОВНЕ ОКРЕМЕ ВІКНО) -->
     <div id="booking-modal-step1" popover>
         <header>
             <h2>БРОНЮВАННЯ</h2>
-            <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+            <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">×</button>
         </header>
 
         <form>
@@ -388,7 +449,7 @@
         <div id="booking-modal-step2" popover>
             <header>
                 <h2>БРОНЮВАННЯ</h2>
-                <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+                <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">×</button>
             </header>
 
             <form>
@@ -428,7 +489,7 @@
             <div id="booking-modal-step3" popover>
                 <header>
                     <h2>БРОНЮВАННЯ</h2>
-                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+                    <button type="button" popovertarget="booking-modal-step1" popovertargetaction="hide" aria-label="Закрити">×</button>
                 </header>
 
                 <section>
@@ -447,7 +508,7 @@
     <div id="admin-login" popover>
         <header>
             <h2>Вхід для адміністратора</h2>
-            <button type="button" popovertarget="admin-login" popovertargetaction="hide" aria-label="Закрити">&times;</button>
+            <button type="button" popovertarget="admin-login" popovertargetaction="hide" aria-label="Закрити">×</button>
         </header>
         <form action="admin.html" method="get">
             <p>
@@ -460,7 +521,6 @@
             </p>
             <button type="submit">Увійти</button>
         </form>
-        
     </div>
 </body>
 </html>
