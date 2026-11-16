@@ -1,0 +1,708 @@
+/* ==========================================================================
+   components.css — навігація, кнопки, форми + валідація, картки, акордеон,
+   модальні вікна (Popover API), таблиці. Усе — чистий CSS, без JavaScript.
+   ========================================================================== */
+
+/* ---------- Навігація та бургер ---------- */
+body > header nav a {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.25rem;
+  color: var(--c-text);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+body > header nav a::after {
+  content: "";
+  position: absolute;
+  inset: auto 0.25rem 0.15rem;
+  height: 2px;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+body > header nav a:hover,
+body > header nav a:focus-visible { color: var(--c-accent); }
+body > header nav a:hover::after,
+body > header nav a:focus-visible::after { transform: scaleX(1); }
+
+body > header > label[for="lang-select"] { margin: 0; color: var(--c-muted); font-size: 0.8rem; }
+body > header select,
+body > header > button:not(.admin-secret) { min-height: 40px; }
+body > header select { padding-block: 0.35rem; }
+
+/* Крапка поруч із логотипом: відкриває вікно входу адміністратора.
+   Область натискання 40×40 px (зручно пальцем), візуально — маленька помаранчева крапка. */
+body > header > .admin-secret {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  margin-right: auto;
+  border-radius: 50%;
+  cursor: pointer;
+}
+body > header > .admin-secret::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--c-accent);
+  border-radius: 50%;
+  opacity: 0.65;
+  transition: transform var(--t), opacity var(--t), box-shadow var(--t);
+}
+body > header > .admin-secret:hover::before,
+body > header > .admin-secret:focus-visible::before {
+  opacity: 1;
+  transform: scale(1.6);
+  box-shadow: 0 0 0 4px rgb(213 98 29 / 0.25);
+}
+body > header > .admin-secret:focus-visible { outline: 2px dashed var(--c-accent); outline-offset: 0; }
+
+/* Бургер: прихований чекбокс + label (hack без JS). Показується лише ≤1180px */
+.burger {
+  display: none;
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--c-accent);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background var(--t);
+}
+.burger:hover { background: rgb(213 98 29 / 0.15); }
+.burger span,
+.burger span::before,
+.burger span::after {
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 2px;
+  background: var(--c-text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, top 0.25s ease, background 0.2s ease;
+}
+.burger span { display: block; top: 50%; left: 50%; margin: -1px 0 0 -10px; }
+.burger span::before { content: ""; top: -7px; }
+.burger span::after  { content: ""; top: 7px; }
+
+.nav-toggle:checked + .burger span { background: transparent; }
+.nav-toggle:checked + .burger span::before { top: 0; transform: rotate(45deg); }
+.nav-toggle:checked + .burger span::after  { top: 0; transform: rotate(-45deg); }
+.nav-toggle:focus-visible + .burger { outline: 3px solid var(--c-text); outline-offset: 3px; }
+
+@media (max-width: 1180px) { .burger { display: block; } }
+
+/* Адмін-панель: навігація-«чіпси» */
+.page-admin nav a { text-decoration: none; }
+.page-admin main > aside nav a {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-sm);
+  color: var(--c-text);
+  font-weight: 600;
+  transition: background var(--t), color var(--t);
+}
+.page-admin main > aside nav a:hover { background: var(--c-accent); color: var(--c-bg); }
+.page-admin main > aside nav li { margin-bottom: 0.4rem; }
+.page-admin main > aside nav ul { padding: 0; list-style: none; margin: 0; }
+.page-admin main > aside h2 { font-size: 1rem; color: var(--c-accent); }
+.page-admin > header nav ul { display: flex; align-items: center; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.page-admin > header nav li { margin: 0; }
+.page-admin > header nav a { font-size: 0.85rem; }
+
+/* ---------- Кнопки: основна — помаранчева, додаткова — біла ---------- */
+button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.65rem 1.4rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-bg);                 /* тёмний текст на оранжевому: контраст ≈ 5:1 */
+  background: var(--c-accent);
+  border: 2px solid var(--c-accent);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background var(--t), color var(--t), border-color var(--t), transform var(--t);
+}
+button:hover { background: var(--c-accent-hover); border-color: var(--c-accent-hover); }
+button:active { transform: translateY(1px); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Біла (вторинна) кнопка: «Назад», друга дія в таблицях */
+button[popovertargetaction="hide"]:not([aria-label]),
+td button + button {
+  color: var(--c-text);
+  background: transparent;
+  border-color: var(--c-text);
+}
+button[popovertargetaction="hide"]:not([aria-label]):hover,
+td button + button:hover {
+  color: var(--c-bg);
+  background: var(--c-text);
+  border-color: var(--c-text);
+}
+/* «Супер!» у підтвердженні — знову основна */
+#booking-modal-step3 section button {
+  color: var(--c-bg);
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+}
+#booking-modal-step3 section button:hover { background: var(--c-accent-hover); border-color: var(--c-accent-hover); }
+
+/* Кнопка закриття ✕ */
+button[aria-label="Закрити"] {
+  flex: none;
+  width: 44px;
+  padding: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--c-text);
+  background: transparent;
+  border: 2px solid var(--c-line-soft);
+  border-radius: 50%;
+}
+button[aria-label="Закрити"]:hover { color: var(--c-bg); background: var(--c-accent); border-color: var(--c-accent); }
+
+/* Посилання «ВСЕ МЕНЮ» — біла кнопка */
+#menu-carousel-section > a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.65rem 1.4rem;
+  color: var(--c-text);
+  border: 2px solid var(--c-text);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+  transition: background var(--t), color var(--t);
+}
+#menu-carousel-section > a:hover { color: var(--c-bg); background: var(--c-text); }
+
+/* Кнопки-обгортки навколо зображень (відкривають модальне вікно) */
+.dish-card > button,
+.event-card > button,
+.gallery-item > button {
+  all: unset;
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  cursor: zoom-in;
+  box-sizing: border-box;
+}
+.dish-card > button:focus-visible,
+.event-card > button:focus-visible,
+.gallery-item > button:focus-visible { outline: 3px solid var(--c-accent); outline-offset: 3px; }
+
+/* ---------- Типографічні «ейброу»-підписи над заголовками ---------- */
+:is(#afisha > div > p:first-child, #menu-header > p, #afisha-header > p, #gallery-header > p,
+    #corporate > p, #contacts > p, #techrider > p, #menu-carousel-section > p,
+    #events-tourists-section article > p:first-child) {
+  margin-bottom: 0.5rem;
+  color: var(--c-accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+main h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin-top: 0.75rem;
+  background: var(--c-accent);
+  border-radius: 2px;
+}
+#afisha > div > img {
+  width: 100%;
+  margin-top: 1.25rem;
+  aspect-ratio: 856 / 540;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Картки ---------- */
+.dish-card,
+.event-card,
+#carousel > article,
+#afisha > aside article,
+#events-tourists-section article,
+.corporate-card,
+#why-us li,
+#techrider > aside > div,
+#stat figure,
+.page-admin main > section {
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+}
+.dish-card,
+.event-card,
+#carousel > article {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem 0.75rem 1.25rem;
+  transition: transform var(--t), border-color var(--t), box-shadow var(--t);
+}
+.dish-card:hover,
+.event-card:hover,
+#carousel > article:hover {
+  transform: translateY(-4px);
+  border-color: var(--c-accent);
+  box-shadow: var(--shadow);
+}
+.dish-card img,
+#carousel > article img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--r-md);
+  transition: transform 0.4s ease;
+}
+.event-card img { width: 100%; transition: transform 0.4s ease; }
+.dish-card:hover img,
+.event-card:hover img,
+#carousel > article:hover img { transform: scale(1.04); }
+
+.dish-card h3,
+.event-card h3,
+#carousel > article h3 { margin: 1rem 0.5rem 0.25rem; font-size: 1.05rem; }
+.dish-card p,
+.event-card p,
+#carousel > article p { margin: 0 0.5rem 0.4rem; }
+.dish-weight, .dish-desc, .event-payment-info,
+#carousel > article p:last-child { color: var(--c-muted); font-size: 0.9rem; }
+.dish-price { color: var(--c-accent); font-size: 1.25rem; }
+.event-date { color: var(--c-accent); }
+.event-price { font-weight: 600; }
+#carousel > article p:nth-of-type(1) { color: var(--c-accent); }
+
+#afisha > aside article { border-radius: var(--r-lg); }
+#afisha > aside img { width: 100%; border-radius: var(--r-sm); }
+#afisha > aside article > div { min-width: 0; }
+
+#events-tourists-section article { padding: clamp(1.25rem, 3vw, 2rem); }
+
+/* Галерея */
+.gallery-item {
+  margin: 0;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+.gallery-item:hover img { transform: scale(1.06); filter: brightness(0.85); }
+.gallery-item > button::after {
+  content: "+";
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--c-bg);
+  background: var(--c-accent);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity var(--t), transform var(--t);
+}
+.gallery-item:hover > button::after,
+.gallery-item > button:focus-visible::after { opacity: 1; transform: scale(1); }
+@media (hover: none) { .gallery-item > button::after { opacity: 1; transform: none; } }
+
+/* Корпоративи */
+.corporate-card { margin: 0; padding: 1.5rem; text-align: center; }
+.corporate-card img { width: 72px; height: 72px; margin: 0 auto 1rem; }
+.corporate-card figcaption { font-size: 1.05rem; }
+#why-us li {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--c-accent);
+  border-radius: var(--r-md);
+}
+
+/* Техрайдер: звукорежисери */
+#techrider > aside > div { padding: 1rem; text-align: center; }
+#techrider > aside img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r-md); margin-bottom: 0.75rem; }
+#techrider > aside h4 { margin-bottom: 0.25rem; }
+#techrider > aside p { margin: 0; }
+
+/* Контакти: карта */
+#contacts a > img {
+  width: 100%;
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#contacts a:hover > img { transform: scale(1.01); box-shadow: var(--shadow); }
+
+/* ---------- Акордеон <details> (бенкети, туристи, техрайдер) ---------- */
+details {
+  margin-bottom: 0.75rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--t);
+}
+details[open] { border-color: var(--c-accent); }
+details > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  padding: 0.9rem 1.25rem;
+  list-style: none;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: background var(--t);
+}
+details > summary::-webkit-details-marker { display: none; }
+details > summary:hover { background: rgb(213 98 29 / 0.1); }
+details > summary::after {
+  content: "";
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: -0.25rem;
+  border-right: 2px solid var(--c-accent);
+  border-bottom: 2px solid var(--c-accent);
+  transform: rotate(45deg);
+  transition: transform var(--t), margin var(--t);
+}
+details[open] > summary::after { margin-top: 0.25rem; transform: rotate(-135deg); }
+details > :not(summary) { margin-inline: 1.25rem; }
+details > :last-child { margin-bottom: 1.25rem; }
+details > ul { padding-left: 1.2em; }
+#events-tourists-section details { background: transparent; }
+
+/* Плавне розкриття — прогресивне покращення (Chrome 131+), інші розкривають миттєво */
+@supports selector(::details-content) {
+  :root { interpolate-size: allow-keywords; }
+  details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition: block-size 0.3s ease, content-visibility 0.3s allow-discrete;
+  }
+  details[open]::details-content { block-size: auto; }
+}
+
+/* ---------- Форми ---------- */
+form { margin: 0; }
+fieldset {
+  min-inline-size: 0;
+  margin: 0 0 1.25rem;
+  padding: 1.25rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-line);
+  border-radius: var(--r-md);
+}
+legend {
+  padding: 0 0.6rem;
+  color: var(--c-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+label { display: inline-block; margin-bottom: 0.35rem; font-size: 0.85rem; letter-spacing: 0.04em; }
+form p { margin: 0 0 1rem; }
+
+input, select, textarea {
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  font: inherit;
+  color: var(--c-text);
+  background: rgb(255 255 255 / 0.06);
+  border: 1px solid rgb(255 255 255 / 0.28);
+  border-radius: var(--r-sm);
+  transition: border-color var(--t), box-shadow var(--t), background-color var(--t);
+}
+input::placeholder, textarea::placeholder { color: rgb(255 255 255 / 0.45); }
+textarea { width: 100%; min-height: 7rem; resize: vertical; }
+
+input:hover, select:hover, textarea:hover { border-color: rgb(255 255 255 / 0.5); }
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid transparent;                 /* видно у режимі високого контрасту */
+  border-color: var(--c-accent);
+  background-color: rgb(255 255 255 / 0.1);
+  box-shadow: 0 0 0 3px rgb(213 98 29 / 0.4);
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 2.4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23D5621D' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  cursor: pointer;
+}
+option { color: var(--c-text); background: var(--c-bg-2); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--c-accent); min-height: 0; }
+
+input[type="file"] { width: 100%; padding: 0.45rem; }
+input[type="file"]::file-selector-button {
+  margin-right: 0.75rem;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--c-bg);
+  background: var(--c-accent);
+  border: 0;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+
+fieldset input:not([type="radio"], [type="checkbox"]),
+fieldset select { width: 100%; max-width: 36rem; }
+[popover] input:not([type="radio"], [type="checkbox"]),
+[popover] select { width: 100%; }
+
+/* --- Клієнтська валідація: HTML5-атрибути (required, pattern, min/max, minlength)
+       + стани :user-invalid / :user-valid (спрацьовують після взаємодії з полем) --- */
+input:user-invalid, textarea:user-invalid, select:user-invalid {
+  border-color: var(--c-danger);
+  box-shadow: 0 0 0 3px rgb(255 138 122 / 0.25);
+}
+input:user-valid:required, textarea:user-valid:required { border-color: var(--c-ok); }
+
+/* Повідомлення про помилку — через ::after обгортки <p> (HTML не змінюємо) */
+form p:has(> :user-invalid)::after,
+fieldset:has(> :user-invalid)::after {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--c-danger);
+  font-size: 0.8rem;
+  font-weight: 600;
+  content: "Перевірте правильність цього поля.";
+}
+form p:has(> :user-invalid:placeholder-shown)::after { content: "Це поле обов’язкове."; }
+form p:has(> #fio:user-invalid:not(:placeholder-shown))::after { content: "Введіть ПІБ повністю (мінімум 5 символів)."; }
+form p:has(> #phone:user-invalid:not(:placeholder-shown))::after { content: "Формат номера: +380XXXXXXXXX."; }
+form p:has(> #guests:user-invalid)::after { content: "Вкажіть від 1 до 20 осіб."; }
+form p:has(> #cert:user-invalid)::after { content: "Формат сертифіката: XXXX-XXXX."; }
+form p:has(> #event-price:user-invalid)::after,
+form p:has(> #dish-price:user-invalid)::after { content: "Ціна має бути числом від 0."; }
+fieldset:has(> #booking-date:user-invalid)::after { content: "Оберіть дату візиту."; }
+form p:has(> #admin-user:user-invalid:not(:placeholder-shown))::after { content: "Логін — мінімум 3 символи."; }
+form p:has(> #admin-pass:user-invalid:not(:placeholder-shown))::after { content: "Пароль — мінімум 6 символів."; }
+
+/* Запасний варіант для браузерів без :user-invalid */
+@supports not selector(:user-invalid) {
+  input:required:not(:placeholder-shown):invalid,
+  textarea:required:not(:placeholder-shown):invalid {
+    border-color: var(--c-danger);
+    box-shadow: 0 0 0 3px rgb(255 138 122 / 0.25);
+  }
+}
+
+/* ---------- Бронювання: вибір часу (радіокнопки → «плашки») ---------- */
+#booking-modal-step2 fieldset > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.6rem;
+}
+#booking-modal-step2 fieldset > div br { display: none; }
+#booking-modal-step2 fieldset > p { color: var(--c-muted); font-size: 0.8rem; }
+#booking-modal-step2 fieldset > div label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--c-accent);          /* вільно — «прозора» плашка */
+  border-radius: var(--r-sm);
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background var(--t), color var(--t);
+}
+#booking-modal-step2 fieldset > div input[type="radio"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+#booking-modal-step2 fieldset > div label:hover:not(:has(:disabled)) { background: rgb(213 98 29 / 0.2); }
+#booking-modal-step2 fieldset > div label:has(:checked) { color: var(--c-bg); background: var(--c-accent); }
+#booking-modal-step2 fieldset > div label:has(:disabled) {   /* зайнято — «заповнена» плашка */
+  color: rgb(255 255 255 / 0.45);
+  background: #4A2A1C;
+  border-color: #4A2A1C;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+#booking-modal-step2 fieldset > div label:has(:focus-visible) { outline: 3px solid var(--c-text); outline-offset: 2px; }
+
+/* ---------- Модальні вікна (Popover API) ---------- */
+[popover] {
+  width: min(92vw, 560px);
+  max-height: 90vh;
+  max-height: 90dvh;
+  margin: auto;
+  padding: 1.25rem 1.25rem 1.5rem;
+  overflow: auto;
+  overscroll-behavior: contain;
+  color: var(--c-text);
+  background: var(--c-bg);
+  border: 1px solid var(--c-accent);
+  border-radius: var(--r-lg);
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.7);
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  transition: opacity 0.25s ease, transform 0.25s ease,
+              overlay 0.25s allow-discrete, display 0.25s allow-discrete;
+}
+[popover]:popover-open { opacity: 1; transform: none; }
+@starting-style {
+  [popover]:popover-open { opacity: 0; transform: translateY(14px) scale(0.98); }
+}
+[popover]::backdrop {
+  background: rgb(10 4 2 / 0.78);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+[popover] > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--c-line);
+}
+[popover] > header h2,
+[popover] > header p { margin: 0; font-size: 1.25rem; }
+[popover] > header p { color: var(--c-accent); letter-spacing: 0.08em; text-transform: uppercase; }
+
+[popover] article img { width: 100%; max-height: 45vh; object-fit: cover; border-radius: var(--r-md); margin-bottom: 1rem; }
+[popover] article p strong { color: var(--c-accent); }
+[popover] article > p:nth-of-type(1) strong:only-child { font-size: 1.25rem; }
+
+[id^="photo-modal"] { width: min(94vw, 760px); }
+[id^="photo-modal"] figure { margin: 0; }
+[id^="photo-modal"] img { width: 100%; max-height: 70vh; object-fit: contain; border-radius: var(--r-md); }
+[id^="photo-modal"] figcaption { margin-top: 0.75rem; color: var(--c-muted); font-size: 0.9rem; text-align: center; }
+
+/* Вхід адміністратора */
+#admin-login { width: min(92vw, 400px); }
+#admin-login form > button { width: 100%; margin-top: 0.5rem; }
+#admin-login > p { margin: 1rem 0 0; color: var(--c-muted); font-size: 0.8rem; text-align: center; }
+
+/* Бронювання */
+[id^="booking-modal"] form br { display: none; }
+[id^="booking-modal"] form > button { margin-top: 1rem; }
+#booking-modal-step1 > form > button { width: 100%; }
+#booking-modal-step2 > form { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+#booking-modal-step2 > form > fieldset { flex: 1 1 100%; margin: 0; }
+#booking-modal-step2 > form > button { flex: 1 1 8rem; margin-top: 0.4rem; }
+#booking-modal-step1 form > div img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+}
+#booking-modal-step3 section { text-align: center; }
+#booking-modal-step3 section br { display: none; }
+#booking-modal-step3 section p { color: var(--c-muted); }
+
+/* ---------- Адмін-панель: таблиці, значки, статистика ---------- */
+table input { min-height: 36px; padding: 0.35rem 0.6rem; min-width: 8rem; width: 100%; }
+td img { width: 60px; height: auto; border-radius: var(--r-sm); }
+td button { min-height: 36px; padding: 0.35rem 0.8rem; font-size: 0.75rem; margin: 0.15rem 0.25rem 0.15rem 0; }
+td code { color: var(--c-accent); }
+.page-admin h3 { margin-top: 1.5rem; font-size: 1rem; color: var(--c-accent); }
+
+mark, td > strong {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+mark { color: #FFB27A; background: rgb(213 98 29 / 0.2); border: 1px solid var(--c-accent); }
+td > strong { color: var(--c-ok); background: rgb(127 214 154 / 0.12); border: 1px solid rgb(127 214 154 / 0.5); }
+
+#stat figure { margin: 0; padding: 1.25rem; }
+#stat figcaption { font-size: 2.25rem; font-weight: 800; line-height: 1.1; }
+#stat figcaption strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--c-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.page-admin main > section { padding: clamp(1rem, 3vw, 1.75rem); }
+.page-admin main > section > h2 { font-size: clamp(1.15rem, 1rem + 1vw, 1.6rem); }
+#bookings-management form label { margin: 0; }
+#bookings-management form input[type="search"] { width: auto; min-width: 14rem; }
+#bookings-management form select { width: auto; }
+
+/* ---------- Прокрутка каруселі ---------- */
+#carousel { scrollbar-width: thin; scrollbar-color: var(--c-accent) rgb(255 255 255 / 0.08); }
+#carousel::-webkit-scrollbar { height: 8px; }
+#carousel::-webkit-scrollbar-track { background: rgb(255 255 255 / 0.08); border-radius: 8px; }
+#carousel::-webkit-scrollbar-thumb { background: var(--c-accent); border-radius: 8px; }
+
+/* Стрілки каруселі: кнопки з HTML без JS не працюють, тому ховаємо їх;
+   у Chrome 135+ замість них з’являються нативні ::scroll-button() */
+#menu-carousel-section > button { display: none; }
+@supports selector(::scroll-button(*)) {
+  #menu-carousel-section { position: relative; }
+  #carousel::scroll-button(inline-start),
+  #carousel::scroll-button(inline-end) {
+    width: 44px;
+    height: 44px;
+    color: var(--c-bg);
+    background: var(--c-accent);
+    border: 0;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  #carousel::scroll-button(inline-start) { content: "←" / "Попередні страви"; }
+  #carousel::scroll-button(inline-end)   { content: "→" / "Наступні страви"; }
+  #carousel::scroll-button(*):disabled { opacity: 0.3; cursor: default; }
+}
