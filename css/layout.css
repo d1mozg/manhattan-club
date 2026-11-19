@@ -1,0 +1,328 @@
+/* layout.css — каркас сторінок: Flexbox (шапка, карусель) та Grid (секції)
+   Брейкпоінти: <=1180px — бургер-меню; <=900px — планшет; <=600px — телефон. */
+
+/* Шапка */
+body > header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: var(--header-h);
+  padding: 0.75rem var(--pad-x);
+  background: rgb(33 14 9 / 0.94);
+  border-bottom: 1px solid var(--c-line);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+body > header > a:first-child { flex: none; margin-right: auto; }
+body:not(.page-admin) > header > a:first-child { margin-right: 0; }   /* «автовідступ» бере прихована кнопка */
+body > header > a:first-child img { height: 40px; width: auto; }
+
+body > header nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.4vw, 1.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body > header nav li { margin: 0; }
+
+body > hr { display: none; }  /* розділювачі шапки/футера замінені border-ами */
+
+/* Основний контейнер */
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem) var(--pad-x) clamp(2rem, 5vw, 4rem);
+}
+main > section[id] { scroll-margin-top: calc(var(--header-h) + 1rem); }
+
+#menu-header, #afisha-header, #gallery-header { margin-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+
+body > footer {
+  padding: 1.5rem var(--pad-x);
+  border-top: 1px solid var(--c-line);
+  text-align: center;
+  color: var(--c-muted);
+  font-size: 0.875rem;
+}
+body > footer p { margin: 0; }
+
+/* Головна: Hero + афіша (Grid) */
+#afisha {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+  text-align: center;
+}
+#afisha > aside { display: grid; gap: var(--gap); }
+#afisha > aside article {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+#afisha > aside article h2 { grid-column: 1 / -1; margin: 0 0 0.25rem; font-size: 1.25rem; }
+
+/* Головна: карусель «Кухня» (радіокнопки = сторінки) */
+#menu-carousel-section { text-align: center; }
+#carousel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 64px;                         /* місце під стрілки по боках */
+  text-align: left;
+}
+.carousel-page { display: none; }
+#kitchen-page-1:checked ~ .carousel-page-1,
+#kitchen-page-2:checked ~ .carousel-page-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem var(--gap);
+}
+.carousel-arrows { display: none; }
+#kitchen-page-1:checked ~ .carousel-arrows-1,
+#kitchen-page-2:checked ~ .carousel-arrows-2 {
+  position: absolute;
+  inset: 50% 0 auto;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+#menu-carousel-section > a { margin-top: clamp(1.5rem, 4vw, 2.5rem); }
+
+/* Головна: бенкети / туристи (Grid 3 колонки) */
+#events-tourists-section > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  align-items: start;                           /* розкриття «Детальніше» не тягне сусідні блоки */
+  text-align: center;
+}
+#events-tourists-section br { display: none; }
+#events-tourists-section > div > img {
+  align-self: center;                           /* фото стоїть по центру рядка */
+  width: 100%;
+  height: clamp(340px, 40vw, 520px);            /* фіксована висота — більше не масштабується */
+  object-fit: cover;
+  border-radius: var(--r-lg);
+}
+
+/* Головна: техрайдер (Grid 2 колонки) */
+#techrider {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 0 clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+#techrider > p, #techrider > h2 { grid-column: 1 / -1; }
+#techrider > aside {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 1.25rem 1.5rem;
+  text-align: center;
+}
+#techrider > aside h3 { flex: 0 0 100%; margin: 0 0 0.5rem; font-size: clamp(1.25rem, 1rem + 1.2vw, 1.9rem); }
+#techrider > aside > div { flex: 0 0 150px; }
+
+/* Контакти (Grid; однакові на index / affiche / menu / about) */
+#contacts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 0 var(--gap);
+  align-items: stretch;
+}
+#contacts > p, #contacts > h2 { grid-column: 1 / -1; }
+#contacts > div:last-of-type { display: flex; flex-direction: column; text-align: center; }
+#contacts > div:last-of-type > a { flex: 1; display: block; }
+#contacts h3 {
+  margin: 1.25rem 0 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--c-accent);
+}
+#contacts h3:first-child { margin-top: 0; }
+#contacts hr { margin: 1.25rem 0; }
+
+/* Меню / Афіша / Галерея: сітки (всі по центру) */
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem var(--gap);
+}
+.dishes-grid > :last-child:nth-child(odd) {     /* непарна остання страва — по центру */
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - var(--gap) / 2);
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 290px));
+  justify-content: center;
+  gap: var(--gap);
+  align-items: stretch;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 260px));
+  justify-content: center;
+  gap: var(--gap);
+}
+#main-courses, #appetizers, #bar, #events-section, #gallery-grid-section { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+
+/* Корпоративи (about.html): flex + центр */
+#corporate > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+}
+#corporate > div > * { flex: 1 1 260px; max-width: 440px; }
+#why-us ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#why-us li { flex: 1 1 240px; max-width: 310px; }
+
+/* Адмін-панель */
+.page-admin > header { flex-wrap: wrap; }
+.page-admin > header h1 { margin: 0; font-size: clamp(1.1rem, 0.9rem + 1vw, 1.6rem); }
+.page-admin > header h1::after { display: none; }
+.page-admin > header > nav { margin-left: auto; }
+.page-admin > header > a:first-child { margin-right: 0; }
+.page-admin main {
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  column-gap: calc(var(--gap) * 1.5);
+  row-gap: 0;
+  align-items: start;
+}
+.page-admin main > hr { display: none; }
+.page-admin main > aside {
+  grid-column: 1;
+  grid-row: 1 / span 5;
+  position: sticky;
+  top: calc(var(--header-h) + 1rem);
+}
+.page-admin main > section { grid-column: 2; margin-bottom: var(--gap); }
+.page-admin main > section:last-of-type { margin-bottom: 0; }
+#stat > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: var(--gap);
+}
+#bookings-management form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem 1rem;
+}
+#bookings-management form::after { content: ""; order: 1; flex: 0 0 100%; height: 0; }
+#bookings-management form > button { order: 2; margin: 0; }
+
+/* Адаптивність */
+
+/* Бургер-меню: коли горизонтальне меню вже не вміщається */
+@media (max-width: 1180px) {
+  body:not(.page-admin) > header { flex-wrap: wrap; row-gap: 0; }
+
+  /* порядок у верхньому рядку: лого  мова  бронювання  бургер */
+  body:not(.page-admin) > header > select { order: 2; }
+  body:not(.page-admin) > header > button:not(.admin-secret) { order: 3; }
+  body:not(.page-admin) > header > .burger { order: 4; }
+
+  /* меню розкривається вниз на всю ширину */
+  body:not(.page-admin) > header > nav {
+    order: 5;
+    flex: 1 0 100%;
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+  }
+  body:not(.page-admin) > header > nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: 0;
+    overflow: hidden;
+    visibility: hidden;                         /* закрите меню не потрапляє у Tab-фокус */
+    transition: visibility 0s linear 0.3s;
+  }
+  .nav-toggle:checked ~ nav { grid-template-rows: 1fr; }
+  .nav-toggle:checked ~ nav ul { visibility: visible; transition-delay: 0s; }
+
+  body:not(.page-admin) > header nav a {
+    padding: 0.9rem 0.25rem;
+    border-bottom: 1px solid var(--c-line-soft);
+    font-size: 0.95rem;
+  }
+  body:not(.page-admin) > header nav a::after { display: none; }
+  body:not(.page-admin) > header > label[for="lang-select"] {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);
+  }
+}
+
+/* Планшет */
+@media (max-width: 900px) {
+  #afisha,
+  #techrider,
+  #contacts { grid-template-columns: minmax(0, 1fr); }
+
+  #contacts > div + div { margin-top: var(--gap); }
+  #carousel { padding-inline: 0; }
+  #kitchen-page-1:checked ~ .carousel-page-1,
+  #kitchen-page-2:checked ~ .carousel-page-2 { grid-template-columns: minmax(0, 1fr); }
+  #kitchen-page-1:checked ~ .carousel-arrows-1,
+  #kitchen-page-2:checked ~ .carousel-arrows-2 {   /* на вузьких екранах стрілки — під списком */
+    position: static;
+    order: 2;
+    inset: auto;
+    transform: none;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+  .dishes-grid { grid-template-columns: minmax(0, 1fr); }
+  .dishes-grid > :last-child:nth-child(odd) { grid-column: auto; justify-self: stretch; width: auto; }
+  #events-tourists-section > div { grid-template-columns: minmax(0, 1fr); }
+  #events-tourists-section > div > img { height: 340px; }
+
+  /* адмін: бокове меню → горизонтальний рядок */
+  .page-admin main { grid-template-columns: minmax(0, 1fr); }
+  .page-admin main > aside { position: static; grid-row: auto; grid-column: 1; }
+  .page-admin main > section { grid-column: 1; }
+  .page-admin main > aside nav ul { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0; list-style: none; }
+  .page-admin > header { gap: 0.5rem 1rem; }
+
+  /* таблиці адмінки скролляться по горизонталі всередині блока */
+  .page-admin table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+}
+
+/* Телефон */
+@media (max-width: 600px) {
+  :root { --header-h: 64px; }
+  body > header > a:first-child img { height: 32px; }
+  body > header > button:not(.admin-secret) { padding-inline: 0.9rem; font-size: 0.78rem; }
+
+  #afisha > aside article { padding: 1rem; }
+  #techrider > aside { grid-template-columns: minmax(0, 1fr); }
+  .events-grid { grid-template-columns: minmax(0, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  #events-tourists-section > div > img { height: 300px; }
+}
